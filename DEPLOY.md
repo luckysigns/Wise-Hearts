@@ -20,7 +20,7 @@ On the Mac, inside this folder:
     git push -u origin main
 Then in Netlify: Add new site -> Import an existing project -> GitHub ->
 pick the repo -> leave build command empty, publish directory "." -> Deploy.
-Future updates: edit a file, then  git add . && git commit -m "update" && git push
+Future updates: edit a file, then  git add . && git commit -m "update" && git push 
 
 ## Files
 - index / about / services / media / booking / shop / contact .html  = the 7 pages
