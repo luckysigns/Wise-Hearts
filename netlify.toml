@@ -1,0 +1,30 @@
+# Netlify config — static HTML site, no build step needed
+[build]
+  publish = "."
+  command = ""
+
+# Pretty URLs: /about instead of /about.html
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+[[redirects]]
+  from = "/services"
+  to = "/services.html"
+  status = 200
+[[redirects]]
+  from = "/media"
+  to = "/media.html"
+  status = 200
+[[redirects]]
+  from = "/shop"
+  to = "/shop.html"
+  status = 200
+[[redirects]]
+  from = "/booking"
+  to = "/booking.html"
+  status = 200
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
