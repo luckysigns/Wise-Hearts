@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Wisdom of You — Face Reading · Wise Hearts Connect</title>
+<title>The Wisdom of You: Face Reading · Wise Hearts Connect</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
 
@@ -110,7 +110,7 @@ em.brand { font-style: italic; }
 
 /* --- Lotus divider --- */
 .lotus-divider { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 44px auto; max-width: 320px; }
-.lotus-divider::before, .lotus-divider::after { content: ''; flex: 1; height: 1px; background: var(--blush-deep); }
+.lotus-divider::before.lotus-divider::after { content: ''; flex: 1; height: 1px; background: var(--blush-deep); }
 .lotus-divider svg { width: 28px; height: 28px; flex-shrink: 0; opacity: 0.8; }
 
 /* --- Views --- */
@@ -170,7 +170,7 @@ em.brand { font-style: italic; }
   background: var(--white); border: 2px dashed var(--blush-deep); border-radius: 14px;
   padding: 52px 28px; text-align: center; cursor: pointer; transition: border-color 0.2s, background 0.2s;
 }
-.drop-zone:hover, .drop-zone.drag { border-color: var(--clay-rose); background: var(--cream-warm); }
+.drop-zone:hover.drop-zone.drag { border-color: var(--clay-rose); background: var(--cream-warm); }
 .drop-zone svg { width: 54px; height: 54px; margin: 0 auto 16px; opacity: 0.75; }
 .drop-zone h3 { margin-bottom: 8px; }
 .drop-zone p { font-size: 0.95rem; max-width: 420px; margin: 0 auto; }
@@ -185,7 +185,7 @@ em.brand { font-style: italic; }
 .preview-wrap { position: relative; display: inline-block; max-width: 100%; cursor: ew-resize; touch-action: none; line-height: 0; }
 .preview-wrap canvas { max-width: 100%; height: auto; border-radius: 8px; display: block; }
 .midline-marker { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--deep-rose); box-shadow: 0 0 0 1px rgba(255,255,255,0.55); pointer-events: none; }
-.midline-marker::before, .midline-marker::after {
+.midline-marker::before.midline-marker::after {
   content: ''; position: absolute; left: 50%; transform: translateX(-50%);
   border-left: 7px solid transparent; border-right: 7px solid transparent;
 }
@@ -250,7 +250,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
 .profile-guide h4 { margin-bottom: 6px; }
 .profile-guide p { font-size: 0.88rem; }
 .profile-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
-.profile-actions .btn-outline, .profile-actions .btn-primary { padding: 10px 20px; font-size: 0.75rem; }
+.profile-actions .btn-outline.profile-actions .btn-primary { padding: 10px 20px; font-size: 0.75rem; }
 #scan-summary { background: var(--blush); border-radius: 14px; padding: 30px 32px; text-align: center; }
 #scan-summary h3 { margin-bottom: 10px; }
 #scan-summary p { max-width: 520px; margin: 0 auto 8px; font-size: 0.95rem; }
@@ -355,7 +355,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
   .nav-tabs { gap: 2px; }
 }
 @media print {
-  .site-nav, .site-footer, .reading-close .actions, .quiz-shell { display: none !important; }
+  .site-nav.site-footer.reading-close .actions.quiz-shell { display: none !important; }
   .view { padding-top: 0; }
   body { background: #fff; }
 }
@@ -384,8 +384,8 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
 
   <header class="hero">
     <span class="eyebrow">The Wisdom of You · A Face Reading Guide</span>
-    <h1>Your face is a <em>storybook</em><br>— and a treasure map</h1>
-    <p class="lead">Face reading, or <em>Mien Shiang</em>, is the ancient art of reading facial features — your lines, your bone structure, the brightness of your eyes, the shape of your ears — revealing hidden insights about your health, personality, emotions, and life path.</p>
+    <h1>Your face is a <em>storybook</em><br>, and a treasure map</h1>
+    <p class="lead">Face reading, or <em>Mien Shiang</em>, is the ancient art of reading facial features, your lines, your bone structure, the brightness of your eyes, the shape of your ears, revealing hidden insights about your health, personality, emotions, and life path.</p>
     <p class="byline">By Hilarey Boly · Licensed Acupuncturist &amp; Chinese Face Reader · Portland, Oregon</p>
     <div class="cta-row">
       <button class="btn-primary" onclick="showView('quiz')">Begin Your Face Reading</button>
@@ -398,16 +398,16 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
       <div class="prose fade-up">
         <span class="eyebrow">An Ancient, Global Practice</span>
         <h2>Seeing yourself with compassion, curiosity &amp; clarity</h2>
-        <p>Have you ever looked in the mirror, into your own eyes, and wondered — <em>who am I? What am I doing here?</em></p>
+        <p>Have you ever looked in the mirror, into your own eyes, and wondered, <em>who am I? What am I doing here?</em></p>
         <p>Face reading is not about judging appearances as good or bad. In fact, it's the opposite: it invites us to see ourselves and others with more <strong>compassion</strong>, <strong>curiosity</strong>, and <strong>clarity</strong>.</p>
-        <p>In <strong>Chinese and Taoist medicine</strong>, it's called <em>Mien Shiang</em> and has been practiced for over 2,600 years — for health diagnosis, career guidance, matchmaking, even destiny. In <strong>Ayurveda</strong> it's <em>Mukha Samudrika Shastra</em>, where features reflect planetary energies and karmic patterns. And in the <strong>West</strong>, thinkers like Darwin, Rudolf Steiner, and Wilhelm Reich noticed how physical form reflects internal truth.</p>
-        <p>Across all these traditions runs a shared belief: <strong>your face is meaningful.</strong> It tells the story of your soul's journey through life — your strengths, your struggles, your gifts, and your potential.</p>
+        <p>In <strong>Chinese and Taoist medicine</strong>, it's called <em>Mien Shiang</em> and has been practiced for over 2,600 years, for health diagnosis, career guidance, matchmaking, even destiny. In <strong>Ayurveda</strong> it's <em>Mukha Samudrika Shastra</em>, where features reflect planetary energies and karmic patterns. And in the <strong>West</strong>, thinkers like Darwin, Rudolf Steiner, and Wilhelm Reich noticed how physical form reflects internal truth.</p>
+        <p>Across all these traditions runs a shared belief: <strong>your face is meaningful.</strong> It tells the story of your soul's journey through life, your strengths, your struggles, your gifts, and your potential.</p>
       </div>
       <div class="prose fade-up">
         <span class="eyebrow">Shaped by Life</span>
         <h3>Morphology &amp; epigenetics</h3>
-        <p>Your DNA gives you a blueprint — but how that blueprint is <em>built</em> depends on how you live. Stress, nourishment, emotional responses, relationships, and beliefs all shape how your features fully express over time. Like river rocks smoothed by water, we are literally <strong>shaped by life</strong> — and our faces become a living record of it.</p>
-        <p>Traditional Chinese face reading says the face reflects our <strong>Shen</strong> — the spirit that animates us. The brightness in your eyes, the set of your brow, the lift of your smile — these are expressions of spirit, genetics, and how we've processed life's experiences.</p>
+        <p>Your DNA gives you a blueprint, but how that blueprint is <em>built</em> depends on how you live. Stress, nourishment, emotional responses, relationships, and beliefs all shape how your features fully express over time. Like river rocks smoothed by water, we are literally <strong>shaped by life</strong>, and our faces become a living record of it.</p>
+        <p>Traditional Chinese face reading says the face reflects our <strong>Shen</strong>, the spirit that animates us. The brightness in your eyes, the set of your brow, the lift of your smile, these are expressions of spirit, genetics, and how we've processed life's experiences.</p>
         <p>A wrinkle may hold a decade of laughter, or sorrow, or some of each. A scar might be a badge of survival. A dimple might be a soul's tendency toward charm and playfulness.</p>
       </div>
     </div>
@@ -425,7 +425,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     <div class="section-head fade-up">
       <span class="eyebrow">The Face as a Timeline</span>
       <h2>The three zones</h2>
-      <p>Chinese face readers divide the face into three zones — each holding a chapter of your life's story.</p>
+      <p>Chinese face readers divide the face into three zones, each holding a chapter of your life's story.</p>
     </div>
     <div class="two-col">
       <div class="zone-figure fade-up">
@@ -448,9 +448,9 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
         </svg>
       </div>
       <ul class="zone-legend fade-up">
-        <li><strong>Heaven — the upper zone</strong><span>The forehead: ancestry, early life, and spiritual connection. The movie screen of the mind.</span></li>
-        <li><strong>Human — the middle zone</strong><span>The nose, eyes, and cheeks: personal power, relationships, and the middle years of life.</span></li>
-        <li><strong>Earth — the lower zone</strong><span>The jaw and chin: grounding, willpower, and the later years of life.</span></li>
+        <li><strong>Heaven: the upper zone</strong><span>The forehead: ancestry, early life, and spiritual connection. The movie screen of the mind.</span></li>
+        <li><strong>Human: the middle zone</strong><span>The nose, eyes, and cheeks: personal power, relationships, and the middle years of life.</span></li>
+        <li><strong>Earth: the lower zone</strong><span>The jaw and chin: grounding, willpower, and the later years of life.</span></li>
       </ul>
     </div>
   </section>
@@ -466,7 +466,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
 
   <section class="section soft">
     <div class="quote-block fade-up">
-      <blockquote>"Features are never bad or even good — it's always what we do with them. They are resources."</blockquote>
+      <blockquote>"Features are never bad or even good; it's always what we do with them. They are resources."</blockquote>
       <cite>The teaching of Lillian Pearl Bridges, master face reader</cite>
     </div>
   </section>
@@ -475,26 +475,26 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     <div class="section-head fade-up">
       <span class="eyebrow">Taoist Wisdom</span>
       <h2>The Three Treasures</h2>
-      <p>In Taoist medicine, three treasures animate every life — and all three can be seen in the face.</p>
+      <p>In Taoist medicine, three treasures animate every life, and all three can be seen in the face.</p>
     </div>
     <div class="element-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
       <div class="element-card fade-up">
         <div class="el-glyph"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="#7E93A6" stroke-width="2"/><circle cx="24" cy="24" r="7" fill="#F2D9D2" stroke="#7E93A6" stroke-width="1.6"/></svg></div>
-        <h4>Jing — Essence</h4>
+        <h4>Jing: Essence</h4>
         <div class="el-zone">Your inherited blueprint</div>
-        <p>The deep battery of constitution you were born with — your ancestral gifts and vitality. Seen in the ears, bones, and hair. Jing is precious: spent by overwork and stress, preserved by rest, purpose, and living your own path.</p>
+        <p>The deep battery of constitution you were born with, your ancestral gifts and vitality. Seen in the ears, bones, and hair. Jing is precious: spent by overwork and stress, preserved by rest, purpose, and living your own path.</p>
       </div>
       <div class="element-card fade-up">
         <div class="el-glyph"><svg viewBox="0 0 48 48" fill="none"><path d="M10 30 Q18 18 24 24 Q30 30 38 18" stroke="#C26F63" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M10 38 Q18 26 24 32 Q30 38 38 26" stroke="#D9877B" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
-        <h4>Qi — Energy</h4>
+        <h4>Qi: Energy</h4>
         <div class="el-zone">Your daily life force</div>
-        <p>The energy you live on each day — and the one treasure you can make more of: through food you truly enjoy, long slow outbreaths, movement, and rest. Good Qi buffers and protects your Jing.</p>
+        <p>The energy you live on each day, and the one treasure you can make more of: through food you truly enjoy, long slow outbreaths, movement, and rest. Good Qi buffers and protects your Jing.</p>
       </div>
       <div class="element-card fade-up">
         <div class="el-glyph"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="6" fill="#D9877B"/><path d="M24 6 L24 14 M24 34 L24 42 M6 24 L14 24 M34 24 L42 24 M11 11 L17 17 M31 31 L37 37 M37 11 L31 17 M17 31 L11 37" stroke="#C26F63" stroke-width="2" stroke-linecap="round"/></svg></div>
-        <h4>Shen — Spirit</h4>
+        <h4>Shen: Spirit</h4>
         <div class="el-zone">The light of you</div>
-        <p>Your spirit, visible as the light in your eyes and the glow of your skin. Shen shifts moment to moment with your inner state and cannot be faked — it is the most honest thing on any face.</p>
+        <p>Your spirit, visible as the light in your eyes and the glow of your skin. Shen shifts moment to moment with your inner state and cannot be faked; it is the most honest thing on any face.</p>
       </div>
     </div>
   </section>
@@ -526,8 +526,8 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
         </svg>
       </div>
       <div class="prose fade-up">
-        <p>The <strong>ears</strong> hold conception through childhood — your inherited constitution and earliest years. From there, time flows down the face: the <strong>forehead</strong> carries the twenties, the <strong>eyes</strong> the thirties, the <strong>nose</strong> the forties, the <strong>mouth</strong> the fifties, the <strong>chin</strong> the sixties, and the <strong>jaw</strong> the seventies.</p>
-        <p>A smooth, strong feature suggests an easeful decade; lines and markings tell of the lessons lived there. And here is the tradition's most beautiful teaching: <strong>strong markings are badges, not flaws</strong> — evidence of lessons consciously worked and wisdom earned.</p>
+        <p>The <strong>ears</strong> hold conception through childhood, your inherited constitution and earliest years. From there, time flows down the face: the <strong>forehead</strong> carries the twenties, the <strong>eyes</strong> the thirties, the <strong>nose</strong> the forties, the <strong>mouth</strong> the fifties, the <strong>chin</strong> the sixties, and the <strong>jaw</strong> the seventies.</p>
+        <p>A smooth, strong feature suggests an easeful decade; lines and markings tell of the lessons lived there. And here is the tradition's most beautiful teaching: <strong>strong markings are badges, not flaws</strong>, evidence of lessons consciously worked and wisdom earned.</p>
         <p>Even more encouraging: the face is not fixed. As old griefs are released and old fears resolved, lines soften. Your face keeps updating, because it is a living record of who you are becoming.</p>
       </div>
     </div>
@@ -540,14 +540,14 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
       <p>Your face is a map drawn over time by your inner responses to your experiences. It holds memory, meaning, and potential.</p>
     </div>
     <div class="feature-list fade-up">
-      <div class="feature-item"><h4>👁 The Eyes</h4><p>Windows to the soul — emotional depth, presence, vitality, and how you see the world, literally and metaphorically. The Shen is read here first.</p></div>
-      <div class="feature-item"><h4>✨ The Forehead</h4><p>Intellect and thinking patterns — how you process and perceive information, and how you handled the formative early years.</p></div>
-      <div class="feature-item"><h4>🌿 The Eyebrows</h4><p>The "leaves of the tree" — decision-making, drive, and Liver health. Your inner momentum, written in hair.</p></div>
-      <div class="feature-item"><h4>⛰ The Nose</h4><p>The mountain of the face — ambition, confidence, personal power, and how you assert yourself in the world.</p></div>
-      <div class="feature-item"><h4>💋 The Mouth</h4><p>Communication and sensual experience — how you invest in and process life's pleasures, and give and receive nourishment.</p></div>
-      <div class="feature-item"><h4>👂 The Ears</h4><p>Receptivity, intuition, and the childhood years — early influences, listening ability, and inherited constitution.</p></div>
-      <div class="feature-item"><h4>💪 The Chin &amp; Jawline</h4><p>Willpower and endurance — your follow-through, your drive, and how you respond to challenges.</p></div>
-      <div class="feature-item"><h4>🪞 A practice tip</h4><p>Unsure what an expression means? Make it yourself and notice what arises in your body. Mirroring builds empathy and attunement — key tools for any face reader.</p></div>
+      <div class="feature-item"><h4>👁 The Eyes</h4><p>Windows to the soul, emotional depth, presence, vitality, and how you see the world, literally and metaphorically. The Shen is read here first.</p></div>
+      <div class="feature-item"><h4>✨ The Forehead</h4><p>Intellect and thinking patterns, how you process and perceive information, and how you handled the formative early years.</p></div>
+      <div class="feature-item"><h4>🌿 The Eyebrows</h4><p>The "leaves of the tree", decision-making, drive, and Liver health. Your inner momentum, written in hair.</p></div>
+      <div class="feature-item"><h4>⛰ The Nose</h4><p>The mountain of the face, ambition, confidence, personal power, and how you assert yourself in the world.</p></div>
+      <div class="feature-item"><h4>💋 The Mouth</h4><p>Communication and sensual experience, how you invest in and process life's pleasures, and give and receive nourishment.</p></div>
+      <div class="feature-item"><h4>👂 The Ears</h4><p>Receptivity, intuition, and the childhood years, early influences, listening ability, and inherited constitution.</p></div>
+      <div class="feature-item"><h4>💪 The Chin &amp; Jawline</h4><p>Willpower and endurance, your follow-through, your drive, and how you respond to challenges.</p></div>
+      <div class="feature-item"><h4>🪞 A practice tip</h4><p>Unsure what an expression means? Make it yourself and notice what arises in your body. Mirroring builds empathy and attunement, key tools for any face reader.</p></div>
     </div>
   </section>
 
@@ -568,7 +568,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     <div class="mirror-head">
       <span class="eyebrow">The Two Sides of You</span>
       <h1>Meet the face you <em>show</em><br>and the face you <em>keep</em></h1>
-      <p class="lead">In Chinese face reading, your two sides tell different stories. Upload a photo and see each side of your face mirrored onto itself — a classic teaching from Lillian Pearl Bridges, and often a revelation.</p>
+      <p class="lead">In Chinese face reading, your two sides tell different stories. Upload a photo and see each side of your face mirrored onto itself, a classic teaching from Lillian Pearl Bridges, and often a revelation.</p>
     </div>
 
     <div id="mirror-upload">
@@ -586,14 +586,14 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
       </div>
       <div class="privacy-note">
         <span>🔒</span>
-        <div><strong>Your photo never leaves your device.</strong> Everything happens right here in your browser — nothing is uploaded, stored, or sent anywhere. Close the page and it's gone.</div>
+        <div><strong>Your photo never leaves your device.</strong> Everything happens right here in your browser, nothing is uploaded, stored, or sent anywhere. Close the page and it's gone.</div>
       </div>
     </div>
 
     <div id="mirror-workspace" style="display:none">
       <div class="adjust-panel">
         <h4>Set your center line</h4>
-        <p class="adjust-hint">Drag on the photo (or use the slider) to place the line down the center of your face — through the middle of your nose. Straighten the photo if your head is tilted.</p>
+        <p class="adjust-hint">Drag on the photo (or use the slider) to place the line down the center of your face, through the middle of your nose. Straighten the photo if your head is tilted.</p>
         <div class="preview-wrap" id="preview-wrap">
           <canvas id="preview-canvas"></canvas>
           <div class="midline-marker" id="midline-marker"></div>
@@ -613,7 +613,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
           <button class="btn-outline" onclick="flipPhoto()">Flip Photo</button>
           <button class="btn-outline" onclick="resetMirror()">Choose Another</button>
         </div>
-        <p class="adjust-hint" style="margin:16px 0 0;">Selfies are sometimes saved mirror-image. If the writing on your shirt reads backwards — or your part falls on the wrong side — tap <em>Flip Photo</em> so the sides are labelled correctly.</p>
+        <p class="adjust-hint" style="margin:16px 0 0;">Selfies are sometimes saved mirror-image. If the writing on your shirt reads backwards, or your part falls on the wrong side, tap <em>Flip Photo</em> so the sides are labelled correctly.</p>
       </div>
 
       <div id="composite-output" style="display:none">
@@ -622,21 +622,21 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
             <canvas id="canvas-right"></canvas>
             <h4>Your Public Face</h4>
             <div class="cc-tag">Right side, doubled</div>
-            <p>The face you present to the world — more composed, more guarded, the one you've learned to wear.</p>
+            <p>The face you present to the world, more composed, more guarded, the one you've learned to wear.</p>
             <button class="dl" onclick="downloadComposite('canvas-right','public-face')">Save image ↓</button>
           </div>
           <div class="composite-card feature">
             <canvas id="canvas-orig"></canvas>
             <h4>You</h4>
             <div class="cc-tag">As you are</div>
-            <p>Your whole face — both stories at once, exactly as the world meets you.</p>
+            <p>Your whole face, both stories at once, exactly as the world meets you.</p>
             <button class="dl" onclick="downloadComposite('canvas-orig','whole-face')">Save image ↓</button>
           </div>
           <div class="composite-card">
             <canvas id="canvas-left"></canvas>
             <h4>Your Private Face</h4>
             <div class="cc-tag">Left side, doubled</div>
-            <p>The face you keep — where feeling gathers, and often where your truer self can be seen.</p>
+            <p>The face you keep, where feeling gathers, and often where your truer self can be seen.</p>
             <button class="dl" onclick="downloadComposite('canvas-left','private-face')">Save image ↓</button>
           </div>
         </div>
@@ -644,15 +644,15 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
         <div class="mirror-reading">
           <span class="eyebrow">Reading Your Two Sides</span>
           <h3>What the difference is telling you</h3>
-          <p>In the Chinese tradition, the <strong>right side of your face is the public self</strong> — the side governed by the logical, ordering mind. It tends to be smoother and more composed, because it's the face you've practised. The <strong>left side is the private self</strong>, where the feelings you haven't spoken settle over the years. Face readers often trust the left side as the truer read.</p>
-          <p>Almost no one is symmetrical, and asymmetry is not a flaw — it's a record. The greater the difference between your two sides, the more of you is being held quietly rather than shown. When the two grow more alike over a life, it usually means a person has become able to express what they feel.</p>
+          <p>In the Chinese tradition, the <strong>right side of your face is the public self</strong>, the side governed by the logical, ordering mind. It tends to be smoother and more composed, because it's the face you've practised. The <strong>left side is the private self</strong>, where the feelings you haven't spoken settle over the years. Face readers often trust the left side as the truer read.</p>
+          <p>Almost no one is symmetrical, and asymmetry is not a flaw; it's a record. The greater the difference between your two sides, the more of you is being held quietly rather than shown. When the two grow more alike over a life, it usually means a person has become able to express what they feel.</p>
           <p style="margin-bottom:6px;"><strong style="color:var(--deep-rose);font-weight:500;">Sit with the two faces and notice:</strong></p>
           <ul class="look-for">
-            <li>Which one feels more like you — and which one do people meet?</li>
+            <li>Which one feels more like you, and which one do people meet?</li>
             <li>Which face looks more open? Softer around the eyes and mouth?</li>
             <li>Is one eye more awake, more present, more able to receive?</li>
             <li>Does one mouth lift while the other rests level or falls?</li>
-            <li>Does one face look younger, lighter — or more tired and weathered?</li>
+            <li>Does one face look younger, lighter, or more tired and weathered?</li>
             <li>If your private face carries more sorrow, what has it been holding for you?</li>
           </ul>
           <p style="margin-top:18px;">Whatever you see, meet it kindly. Both faces are yours, both have carried you, and neither is a verdict.</p>
@@ -673,18 +673,18 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     <div class="mirror-head">
       <span class="eyebrow">Face Scan</span>
       <h1>Let your photos do<br>some of the <em>looking</em></h1>
-      <p class="lead">Two photos — one facing forward, one from the side — and we'll measure what can honestly be measured. You'll review everything afterwards.</p>
+      <p class="lead">Two photos, one facing forward, one from the side, and we'll measure what can honestly be measured. You'll review everything afterwards.</p>
     </div>
 
     <div class="privacy-note" style="margin-bottom:28px;">
       <span>🔒</span>
-      <div><strong>Your photos never leave your device.</strong> All the measuring happens inside your own browser. Nothing is uploaded or stored — close the page and it's gone.</div>
+      <div><strong>Your photos never leave your device.</strong> All the measuring happens inside your own browser. Nothing is uploaded or stored, close the page and it's gone.</div>
     </div>
 
     <div class="scan-step">
       <div class="step-badge">1</div>
       <h3>A photo facing forward</h3>
-      <p>Look straight at the camera with a relaxed, neutral expression — no smile, even light, hair off your face if you can. We'll measure the proportions of your eyes, brows, nose, mouth, jaw, and the shape of your face.</p>
+      <p>Look straight at the camera with a relaxed, neutral expression, no smile, even light, hair off your face if you can. We'll measure the proportions of your eyes, brows, nose, mouth, jaw, and the shape of your face.</p>
       <div class="mini-drop" id="front-drop">
         <strong>Choose a front-facing photo</strong>
         <span>or take one now</span>
@@ -697,7 +697,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     <div class="scan-step">
       <div class="step-badge">2</div>
       <h3>A photo from the side</h3>
-      <p>A side view shows what no front photo can: your ears, the profile of your nose, your brow bone, and the set of your chin. You'll tap a few points on your own face — a small act of looking closely.</p>
+      <p>A side view shows what no front photo can: your ears, the profile of your nose, your brow bone, and the set of your chin. You'll tap a few points on your own face, a small act of looking closely.</p>
       <div class="mini-drop" id="profile-drop">
         <strong>Choose a side-view photo</strong>
         <span>facing left or right, ear visible</span>
@@ -720,7 +720,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     <div class="scan-step" style="text-align:center;">
       <div class="step-badge">3</div>
       <h3>See your two sides</h3>
-      <p style="max-width:520px;margin:0 auto 18px;">While you're here — mirror each half of your face onto itself and meet your public and private selves.</p>
+      <p style="max-width:520px;margin:0 auto 18px;">While you're here, mirror each half of your face onto itself and meet your public and private selves.</p>
       <button class="btn-outline" onclick="showView('mirror')">Open the Mirror</button>
     </div>
 
@@ -752,11 +752,11 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     <a href="https://tiktok.com/@wise.hearts" target="_blank" rel="noopener">TikTok</a>
     <a href="mailto:wiseheartsconnected@gmail.com">Contact</a>
   </div>
-  <p class="foot-fine">Face readings offered here are for reflection, self-discovery, and enjoyment — not medical advice. From "The Wisdom of You" by Hilarey Boly.</p>
+  <p class="foot-fine">Face readings offered here are for reflection, self-discovery, and enjoyment, not medical advice. From "The Wisdom of You" by Hilarey Boly.</p>
 </footer>
 <script>
 /* ==========================================================
-   THE WISDOM OF YOU — content digested from the guide by
+   THE WISDOM OF YOU, content digested from the guide by
    Hilarey Boly. Elements, features, meanings, and scoring.
    ========================================================== */
 
@@ -946,6 +946,14 @@ function earArt(kind) {
       <path d="M74 40 L74 41 M96 40 L96 41" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>
       <path d="M78 58 Q85 62 92 58" stroke="${INK}" stroke-width="2" fill="none" stroke-linecap="round"/>`);
   }
+  if (kind === 'natural') {
+    return S(`<path d="M 55 30 Q 55 10 85 10 Q 115 10 115 30 Q 115 62 85 74 Q 55 62 55 30 Z" fill="#fff" stroke="${INK}" stroke-width="2.4"/>
+      <path d="M 55 35 Q 45 33 45 46 Q 45 55 55 52" fill="#fff" stroke="${INK}" stroke-width="2.3"/>
+      <path d="M 115 35 Q 125 33 125 46 Q 125 55 115 52" fill="#fff" stroke="${INK}" stroke-width="2.3"/>
+      <path d="M70 34 Q76 31 81 34 M89 34 Q94 31 100 34" stroke="${INK}" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M74 40 L74 41 M96 40 L96 41" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>
+      <path d="M78 58 Q85 62 92 58" stroke="${INK}" stroke-width="2" fill="none" stroke-linecap="round"/>`);
+  }
   // close
   return S(`<path d="M 55 30 Q 55 10 85 10 Q 115 10 115 30 Q 115 62 85 74 Q 55 62 55 30 Z" fill="#fff" stroke="${INK}" stroke-width="2.4"/>
     <path d="M 55 36 Q 50 38 52 48 Q 53 53 56 52" fill="#fff" stroke="${INK}" stroke-width="2.2"/>
@@ -1017,6 +1025,7 @@ function lobeArt(kind) {
   const inner = `<path d="M 80 22 Q 98 18 98 38 Q 98 50 90 56" stroke="${INK}" stroke-width="1.6" fill="none"/>`;
   const lobes = {
     large: `${upper} Q 106 92 84 92 Q 64 90 70 66 Q 64 40 70 24 Q 71 17 74 14 Z`,
+    medium: `${upper} Q 101 82 84 82 Q 67 81 71 62 Q 65 39 70 24 Q 71 17 74 14 Z`,
     small: `${upper} Q 96 72 84 72 Q 70 72 72 58 Q 66 38 70 24 Q 71 17 74 14 Z`,
     longthin: `${upper} Q 98 70 94 84 Q 92 98 82 97 Q 74 95 78 80 Q 74 68 72 56 Q 66 38 70 24 Q 71 17 74 14 Z`
   };
@@ -1048,48 +1057,48 @@ const EL_GLYPHS = {
 const ELEMENTS = {
   wood: {
     name: 'Wood', color: '#7C9068', zone: 'Eyebrows & Temples · Vision · Growth',
-    season: 'the energy of spring — new beginnings, upward movement, and fresh ideas',
+    season: 'the energy of spring, new beginnings, upward movement, and fresh ideas',
     organs: 'Liver & Gallbladder',
-    desc: 'Wood is all about direction, planning, and growth — trees stretching toward the sky, a person pushing toward a goal. Wood types are often natural leaders: bold, visionary, and passionate about justice. When Wood is strong you are creative, courageous, and driven by purpose; out of balance, Wood can become frustrated, impatient, or rigid.',
-    support: ['Move your body — stretch, walk, dance', 'Journal and plan', 'Release anger in healthy ways', 'Go easy on alcohol and greasy food, which stagnate the Liver', 'Stay flexible in mind and body'],
-    taoist: 'Wood houses the <strong>Hun</strong>, our Ethereal Soul — the dreamer within. It guides our visions and night dreams, helping us imagine and reach for what’s next.',
-    radiance: { name: 'Direct', desc: 'Your natural radiance is focused intensity. When you fix your gaze on a goal — or a person — they feel it. People find themselves following your lead almost before deciding to.' }
+    desc: 'Wood is all about direction, planning, and growth, trees stretching toward the sky, a person pushing toward a goal. Wood types are often natural leaders: bold, visionary, and passionate about justice. When Wood is strong you are creative, courageous, and driven by purpose; out of balance, Wood can become frustrated, impatient, or rigid.',
+    support: ['Move your body, stretch, walk, dance', 'Journal and plan', 'Release anger in healthy ways', 'Go easy on alcohol and greasy food, which stagnate the Liver', 'Stay flexible in mind and body'],
+    taoist: 'Wood houses the <strong>Hun</strong>, our Ethereal Soul, the dreamer within. It guides our visions and night dreams, helping us imagine and reach for what’s next.',
+    radiance: { name: 'Direct', desc: 'Your natural radiance is focused intensity. When you fix your gaze on a goal, or a person; they feel it. People find themselves following your lead almost before deciding to.' }
   },
   fire: {
     name: 'Fire', color: '#C26F63', zone: 'Eyes & Tips · Joy · Connection',
-    season: 'summer energy — bright, warm, alive; the force of love, laughter, and heartfelt expression',
+    season: 'summer energy, bright, warm, alive; the force of love, laughter, and heartfelt expression',
     organs: 'Heart, Small Intestine, Pericardium & San Jiao',
     desc: 'Fire types light up a room and crave meaningful connection. Fire governs joy, discernment, emotional boundaries, and circulation. A healthy Fire makes you feel radiant, spiritually connected, and emotionally in tune. When excessive, Fire can feel anxious or burnt out; when low, cold, withdrawn, or lonely.',
-    support: ['Spend time with loved ones', 'Laugh and play', 'Meditate or rest the mind', 'Avoid late nights and stimulants', 'Live from the heart — when deciding, ask how it feels, and go with that'],
+    support: ['Spend time with loved ones', 'Laugh and play', 'Meditate or rest the mind', 'Avoid late nights and stimulants', 'Live from the heart, when deciding, ask how it feels, and go with that'],
     taoist: 'Fire houses the <strong>Shen</strong>, our Spirit. It brings clarity, love, and presence. A bright Shen is a spark of life you can feel.',
-    radiance: { name: 'Sparkling', desc: 'Your natural radiance is effervescence — an open-hearted, playful light that fills a room. People are drawn toward your warmth the way they gather around a fire.' }
+    radiance: { name: 'Sparkling', desc: 'Your natural radiance is effervescence, an open-hearted, playful light that fills a room. People are drawn toward your warmth the way they gather around a fire.' }
   },
   earth: {
     name: 'Earth', color: '#C99B5F', zone: 'Mouth & Lips · Nurturing · Stability',
-    season: 'late summer energy — centered, calm, and nourishing; the energy of caretaking and grounded support',
+    season: 'late summer energy, centered, calm, and nourishing; the energy of caretaking and grounded support',
     organs: 'Spleen & Stomach',
-    desc: 'Earth helps us process food, thoughts, and feelings. Balanced Earth gives compassion, reliability, and a strong sense of home — both within and around you. Too much Earth can feel like worry, over-caretaking, or clinginess; too little may show up as scattered thinking or feeling unsupported.',
+    desc: 'Earth helps us process food, thoughts, and feelings. Balanced Earth gives compassion, reliability, and a strong sense of home, both within and around you. Too much Earth can feel like worry, over-caretaking, or clinginess; too little may show up as scattered thinking or feeling unsupported.',
     support: ['Eat warm, nourishing foods', 'Give and receive support', 'Create routines and boundaries', 'Ground through nature or touch'],
     taoist: 'Earth is about the center. When we are <strong>home in ourselves</strong>, we can offer nourishment to others.',
-    radiance: { name: 'Warming', desc: 'Your natural radiance is comfort. Around you, people feel fed before you offer a thing — cared for, welcomed, at home. It is the quiet magnetism of the hearth.' }
+    radiance: { name: 'Warming', desc: 'Your natural radiance is comfort. Around you, people feel fed before you offer a thing, cared for, welcomed, at home. It is the quiet magnetism of the hearth.' }
   },
   metal: {
     name: 'Metal', color: '#9A938B', zone: 'Nose & Cheeks · Value · Integrity',
-    season: 'autumn energy — crisp, reflective, and refined; letting go of what no longer serves',
+    season: 'autumn energy, crisp, reflective, and refined; letting go of what no longer serves',
     organs: 'Lungs & Large Intestine',
-    desc: 'Metal manages breath, inspiration, and elimination — it’s about grief, clarity, self-worth, and honor. Balanced Metal brings a deep sense of purpose and value, and helps you hold on to what’s most precious. Out of balance, it can turn rigid, overly perfectionistic, or emotionally distant.',
-    support: ['Practice deep breathing and breathwork', 'Let go — clutter, habits, grief, negativity', 'Embrace ritual and beauty', 'Practice self-worth and enjoy beauty'],
+    desc: 'Metal manages breath, inspiration, and elimination, it’s about grief, clarity, self-worth, and honor. Balanced Metal brings a deep sense of purpose and value, and helps you hold on to what’s most precious. Out of balance, it can turn rigid, overly perfectionistic, or emotionally distant.',
+    support: ['Practice deep breathing and breathwork', 'Let go, clutter, habits, grief, negativity', 'Embrace ritual and beauty', 'Practice self-worth and enjoy beauty'],
     taoist: 'Metal connects us to the sacred. It reminds us that <strong>through loss and refinement</strong>, we discover what truly shines.',
-    radiance: { name: 'Dreamy', desc: 'Your natural radiance is refined idealism — a wistful, elegant light that makes people believe a more beautiful world is possible. You inspire by envisioning what could be.' }
+    radiance: { name: 'Dreamy', desc: 'Your natural radiance is refined idealism, a wistful, elegant light that makes people believe a more beautiful world is possible. You inspire by envisioning what could be.' }
   },
   water: {
     name: 'Water', color: '#7E93A6', zone: 'Ears & Jaw · Wisdom · Flow',
-    season: 'the energy of winter — deep, still, and powerful; holding reserves, instincts, and ancestral wisdom',
+    season: 'the energy of winter, deep, still, and powerful; holding reserves, instincts, and ancestral wisdom',
     organs: 'Kidneys & Bladder',
     desc: 'Water types are intuitive, private, powerful, and resilient. Water governs fear, survival, willpower, and the ability to go deep and inward. Balanced Water brings trust in the unknown and the strength to endure. Out of balance, it may show up as fear, isolation, or a constant push to “do” without enough rest.',
     support: ['Rest deeply and often', 'Honor alone time and reflection', 'Listen to your intuition', 'Keep warm in winter, cool in summer, and stay hydrated'],
     taoist: 'Water holds the <strong>Zhi</strong>, our willpower and drive to survive. When strong, it gives us courage in the face of the unknown.',
-    radiance: { name: 'Deep', desc: 'Your natural radiance is depth — a still, knowing presence that draws people to confide in you. There is mystery in your gaze, and others sense wisdom in it before you say a word.' }
+    radiance: { name: 'Deep', desc: 'Your natural radiance is depth, a still, knowing presence that draws people to confide in you. There is mystery in your gaze, and others sense wisdom in it before you say a word.' }
   }
 };
 
@@ -1098,30 +1107,30 @@ const ELEMENTS = {
 const QUESTIONS = [
   {
     id: 'faceShape', area: 'The Face Itself', title: 'Which shape is closest to your face?',
-    note: 'Face shape is the frame of the picture — a first hint at how your energy meets the world. Individual features always matter more.',
+    note: 'Face shape is the frame of the picture, a first hint at how your energy meets the world. Individual features always matter more.',
     options: [
       { id: 'square', label: 'Square', sub: 'About as wide as it is long', svg: faceShapeArt('square'), el: { wood: 2 },
-        meaning: 'A squarish face carries builder-and-leader energy: action-oriented, persistent, willing to take things head-on. When you commit, you hold your ground — people feel safe following you.' },
+        meaning: 'A squarish face carries builder-and-leader energy: action-oriented, persistent, willing to take things head-on. When you commit, you hold your ground, people feel safe following you.' },
       { id: 'rectangle', label: 'Long rectangle', sub: 'Longer than it is wide', svg: faceShapeArt('rectangle'), el: { wood: 1, metal: 1 },
-        meaning: 'A longer, rectangular face suggests a far-sighted nature — you think before you act, hold authority gracefully, and often find yourself mentoring or guiding. This is the classic shape of stewards and planners.' },
+        meaning: 'A longer, rectangular face suggests a far-sighted nature; you think before you act, hold authority gracefully, and often find yourself mentoring or guiding. This is the classic shape of stewards and planners.' },
       { id: 'round', label: 'Round', sub: 'Full and circular', svg: faceShapeArt('round'), el: { earth: 2 },
-        meaning: 'A round face radiates warmth and approachability. You likely love comfort, company, and celebration — people open up to you easily, which is its own quiet power.' },
+        meaning: 'A round face radiates warmth and approachability. You likely love comfort, company, and celebration, people open up to you easily, which is its own quiet power.' },
       { id: 'oval', label: 'Oval', sub: 'Softly elongated', svg: faceShapeArt('oval'), el: { earth: 1, metal: 1 },
-        meaning: 'An oval face carries the diplomat’s gift: graciousness, good instincts for harmony, and a talent for making others feel at ease. You may soften your own opinions to keep the peace — remember your voice matters too.' },
+        meaning: 'An oval face carries the diplomat’s gift: graciousness, good instincts for harmony, and a talent for making others feel at ease. You may soften your own opinions to keep the peace, remember your voice matters too.' },
       { id: 'heart', label: 'Heart or triangle', sub: 'Wide forehead, tapered chin', svg: faceShapeArt('heart'), el: { fire: 1, metal: 1 },
-        meaning: 'A heart-shaped or triangular face — broad above, tapering below — belongs to idea people: intensely mental, original, and independent. You live richly in your mind and follow your own compass.' }
+        meaning: 'A heart-shaped or triangular face, broad above, tapering below, belongs to idea people: intensely mental, original, and independent. You live richly in your mind and follow your own compass.' }
     ]
   },
   {
     id: 'eyeSize', area: 'The Eyes', title: 'How large are your eyes?',
-    note: 'The eyes reveal vitality, clarity, and emotional presence. Their size suggests how open you are — how much you want to, or are able to, connect.',
+    note: 'The eyes reveal vitality, clarity, and emotional presence. Their size suggests how open you are, how much you want to, or are able to, connect.',
     options: [
       { id: 'large', label: 'Large eyes', sub: 'Noticeably big and open', svg: eyesPair({ w: 26, h: 12, iris: 8 }), el: { fire: 2 },
-        meaning: 'Large eyes reflect emotional openness, curiosity, and sensitivity. You likely feel deeply and wear your heart close to the surface — one of the people who brings warmth and presence into a room.' },
+        meaning: 'Large eyes reflect emotional openness, curiosity, and sensitivity. You likely feel deeply and wear your heart close to the surface, one of the people who brings warmth and presence into a room.' },
       { id: 'small', label: 'Smaller eyes', sub: 'Compact and focused', svg: eyesPair({ w: 17, h: 7, iris: 5 }), el: { fire: 1 },
-        meaning: 'Smaller eyes suggest focus, discernment, and attention to detail. You may be more inward and private — but you possess a quiet strength that others sense even when you say little.' },
+        meaning: 'Smaller eyes suggest focus, discernment, and attention to detail. You may be more inward and private, but you possess a quiet strength that others sense even when you say little.' },
       { id: 'medium', label: 'Somewhere between', sub: 'Balanced, average size', svg: eyesPair({ w: 22, h: 9, iris: 6 }), el: { fire: 1 },
-        meaning: 'Eyes of balanced size suggest a flexible nature — able to open warmly to others, and equally able to turn inward and focus when life asks it of you.' }
+        meaning: 'Eyes of balanced size suggest a flexible nature, able to open warmly to others, and equally able to turn inward and focus when life asks it of you.' }
     ]
   },
   {
@@ -1129,11 +1138,11 @@ const QUESTIONS = [
     note: 'Compare the space between your eyes to the width of one eye.',
     options: [
       { id: 'wide', label: 'Wide-set', sub: 'Space wider than one eye', svg: eyesPair({ gap: 46, w: 20 }), el: { wood: 1 },
-        meaning: 'Wide-set eyes belong to big-picture people — you take in broad information with a wide, horizontal view of things. A natural "generalist" who sees the larger perspective where others get lost in the weeds.' },
+        meaning: 'Wide-set eyes belong to big-picture people; you take in broad information with a wide, horizontal view of things. A natural "generalist" who sees the larger perspective where others get lost in the weeds.' },
       { id: 'close', label: 'Close-set', sub: 'Space narrower than one eye', svg: eyesPair({ gap: 10, w: 20 }), el: { metal: 1 },
         meaning: 'Close-set eyes bring attention to detail and a narrow, precise focus. You are often meticulous, able to lock in on what matters and follow a thread with rare concentration.' },
       { id: 'even', label: 'About one eye apart', sub: 'Evenly proportioned', svg: eyesPair({ gap: 26 }), el: {},
-        meaning: 'Evenly spaced eyes suggest balance between the wide view and the fine detail — you can zoom out for perspective and zoom in when precision is needed.' }
+        meaning: 'Evenly spaced eyes suggest balance between the wide view and the fine detail; you can zoom out for perspective and zoom in when precision is needed.' }
     ]
   },
   {
@@ -1141,11 +1150,11 @@ const QUESTIONS = [
     note: 'Look at where the outer corners sit compared to the inner corners.',
     options: [
       { id: 'up', label: 'Tilt upward', sub: 'Outer corners lift', svg: eyesPair({ slant: 7 }), el: { fire: 1 },
-        meaning: 'Eyes that slant upward at the ends carry an optimistic outlook. You tend to look for the lift in life — a hopeful orientation that draws others toward you.' },
+        meaning: 'Eyes that slant upward at the ends carry an optimistic outlook. You tend to look for the lift in life, a hopeful orientation that draws others toward you.' },
       { id: 'down', label: 'Tilt downward', sub: 'Outer corners soften down', svg: eyesPair({ slant: -7 }), el: { water: 1 },
-        meaning: 'Downward-tilting eyes — sometimes called "sad eyes" — belong to people who can truly feel the pain of others. This is deep empathy: a tender, compassionate way of meeting the world.' },
+        meaning: 'Downward-tilting eyes, sometimes called "sad eyes", belong to people who can truly feel the pain of others. This is deep empathy: a tender, compassionate way of meeting the world.' },
       { id: 'level', label: 'Fairly level', sub: 'Corners sit evenly', svg: eyesPair({ slant: 0 }), el: {},
-        meaning: 'Level eyes suggest a steady, even way of seeing — neither chasing the bright side nor dwelling in the depths, but meeting what is with clear regard.' }
+        meaning: 'Level eyes suggest a steady, even way of seeing, neither chasing the bright side nor dwelling in the depths, but meeting what is with clear regard.' }
     ]
   },
   {
@@ -1153,9 +1162,9 @@ const QUESTIONS = [
     note: 'The pencil test: if a pencil rested vertically on your brow bone, would your eye touch it (prominent) or not (deep-set)?',
     options: [
       { id: 'deep', label: 'Deep-set', sub: 'Set back under the brow', svg: eyesPair({ crease: true, h: 8 }), el: { water: 1 },
-        meaning: 'Deep-set eyes suggest an internal nature. You process life inwardly, reflecting before you speak — an observer’s depth that gives your words weight when they arrive.' },
+        meaning: 'Deep-set eyes suggest an internal nature. You process life inwardly, reflecting before you speak, an observer’s depth that gives your words weight when they arrive.' },
       { id: 'prominent', label: 'More prominent', sub: 'Eyes sit forward', svg: eyesPair({ bulge: true, h: 11, iris: 7 }), el: { fire: 1 },
-        meaning: 'Prominent eyes suggest an external, engaged orientation — you meet the world out front, responding in real time, present and expressive with what you see and feel.' },
+        meaning: 'Prominent eyes suggest an external, engaged orientation; you meet the world out front, responding in real time, present and expressive with what you see and feel.' },
       { id: 'neither', label: 'Neither, really', sub: 'Somewhere in the middle', svg: eyesPair({}), el: {},
         meaning: 'Eyes that are neither deep-set nor prominent suggest an easy movement between inner reflection and outward engagement.' }
     ]
@@ -1165,41 +1174,41 @@ const QUESTIONS = [
     note: 'In Chinese medicine this area relates to the Water element and kidney-adrenal health.',
     options: [
       { id: 'circles', label: 'Dark circles or puffiness', sub: 'Shadows or fullness beneath', svg: eyesPair({ circles: true }), el: { water: 1 }, care: true,
-        careText: 'Lillian called under-eye fullness "unshed tears" — emotions that need to come out to be felt. This can be a sign of energy being depleted or held in. Consider it a loving nudge toward rest, water, and letting feelings move.',
-        meaning: 'Shadows or puffiness under the eyes may point to emotional burdens or stress being carried — a sign of energy depleted or held in, and an invitation to tend gently to yourself.' },
+        careText: 'Lillian called under-eye fullness "unshed tears", emotions that need to come out to be felt. This can be a sign of energy being depleted or held in. Consider it a loving nudge toward rest, water, and letting feelings move.',
+        meaning: 'Shadows or puffiness under the eyes may point to emotional burdens or stress being carried, a sign of energy depleted or held in, and an invitation to tend gently to yourself.' },
       { id: 'clear', label: 'Clear and rested', sub: 'Smooth, bright under-eyes', svg: eyesPair({}), el: {},
-        meaning: 'A clear, rested under-eye area reflects well-tended reserves — your Water element is being honored with the rest and release it needs.' }
+        meaning: 'A clear, rested under-eye area reflects well-tended reserves, your Water element is being honored with the rest and release it needs.' }
     ]
   },
   {
     id: 'foreheadHeight', area: 'The Forehead', title: 'How tall is your forehead?',
-    note: 'Measure from your eyebrows to your hairline — more than four finger-widths counts as high.',
+    note: 'Measure from your eyebrows to your hairline, more than four finger-widths counts as high.',
     options: [
       { id: 'high', label: 'High or long', sub: 'More than 4 finger-widths', svg: foreheadArt('high'), el: {},
-        meaning: 'A high forehead points to natural intelligence and strong analytical skills. You enjoy thinking — ideas, theories, information. Imagine the forehead as a movie screen: yours is large, with generous space to receive images and information. If you’re sensitive, this can even shade into the intuitive or psychic.' },
+        meaning: 'A high forehead points to natural intelligence and strong analytical skills. You enjoy thinking, ideas, theories, information. Imagine the forehead as a movie screen: yours is large, with generous space to receive images and information. If you’re sensitive, this can even shade into the intuitive or psychic.' },
       { id: 'short', label: 'Shorter', sub: 'Hairline sits lower', svg: foreheadArt('short'), el: {},
-        meaning: 'A shorter forehead suggests a practical person with excellent kinesthetic sense — you learn by doing. Rather than lofty theories, you trust embodied, experiential knowing. Your wisdom lives in your hands and body.' },
+        meaning: 'A shorter forehead suggests a practical person with excellent kinesthetic sense; you learn by doing. Rather than lofty theories, you trust embodied, experiential knowing. Your wisdom lives in your hands and body.' },
       { id: 'avg', label: 'About average', sub: 'Roughly 4 finger-widths', svg: foreheadArt('avg'), el: {},
-        meaning: 'A balanced forehead suggests you move comfortably between thinking and doing — able to enjoy ideas, and equally able to roll up your sleeves.' }
+        meaning: 'A balanced forehead suggests you move comfortably between thinking and doing, able to enjoy ideas, and equally able to roll up your sleeves.' }
     ]
   },
   {
     id: 'foreheadWidth', area: 'The Forehead', title: 'And how wide is your forehead?',
     options: [
       { id: 'wide', label: 'Wide', sub: 'Broad across the temples', svg: foreheadArt('wide'), el: {},
-        meaning: 'A wide forehead suggests creativity, adaptability, and a spaciousness of mind. You likely think "outside the box" and adapt easily to new situations — a roomy mind with windows open.' },
+        meaning: 'A wide forehead suggests creativity, adaptability, and a spaciousness of mind. You likely think "outside the box" and adapt easily to new situations, a roomy mind with windows open.' },
       { id: 'narrow', label: 'Narrow or average', sub: 'More contained', svg: foreheadArt('avg'), el: {},
-        meaning: 'A narrower forehead suggests focus and depth over breadth — your mind prefers to go deeply into what it loves rather than scattering wide.' }
+        meaning: 'A narrower forehead suggests focus and depth over breadth, your mind prefers to go deeply into what it loves rather than scattering wide.' }
     ]
   },
   {
     id: 'browBones', area: 'The Forehead', title: 'Do you have strong brow bones?',
-    note: 'Feel above your eyes — is there a pronounced ridge?',
+    note: 'Feel above your eyes: is there a pronounced ridge?',
     options: [
       { id: 'strong', label: 'Strong brow bones', sub: 'A firm, pronounced ridge', svg: browBoneArt(true), el: { wood: 1 },
-        meaning: 'Strong brow bones suggest an ability to hold your own. Bones ossify under pressure — this is firming in the face of adversity: independence, an unwillingness to simply comply, and the ability to take a stand when it’s needed. You listen — and then do it your way.' },
+        meaning: 'Strong brow bones suggest an ability to hold your own. Bones ossify under pressure; this is firming in the face of adversity: independence, an unwillingness to simply comply, and the ability to take a stand when it’s needed. You listen, and then do it your way.' },
       { id: 'smooth', label: 'Smooth brow', sub: 'Little or no ridge', svg: browBoneArt(false), el: {},
-        meaning: 'A smooth brow suggests a nature that meets pressure with flow rather than resistance — adapting and moving around obstacles rather than standing against them.' }
+        meaning: 'A smooth brow suggests a nature that meets pressure with flow rather than resistance, adapting and moving around obstacles rather than standing against them.' }
     ]
   },
   {
@@ -1207,13 +1216,13 @@ const QUESTIONS = [
     note: 'The hairline frames the Heaven zone and carries the story of your younger years and how your mind opens to the world.',
     options: [
       { id: 'smooth', label: 'Smooth curve', sub: 'An even, rounded line', svg: hairlineArt('smooth'), el: { earth: 1 },
-        meaning: 'A smooth, rounded hairline suggests an even passage through your early years and a harmonious, steady way of moving into adult life — social graces come naturally to you.' },
+        meaning: 'A smooth, rounded hairline suggests an even passage through your early years and a harmonious, steady way of moving into adult life, social graces come naturally to you.' },
       { id: 'peak', label: 'Widow’s peak', sub: 'A point dipping at the center', svg: hairlineArt('peak'), el: { water: 1, fire: 1 },
-        meaning: 'A widow’s peak is a mark of magnetism — extra charisma, creativity, and allure that you can turn on when you choose. There is a current of deep, primal charm in you that others feel before you say a word.' },
+        meaning: 'A widow’s peak is a mark of magnetism, extra charisma, creativity, and allure that you can turn on when you choose. There is a current of deep, primal charm in you that others feel before you say a word.' },
       { id: 'squared', label: 'Squared', sub: 'Straight across with corners', svg: hairlineArt('squared'), el: { wood: 1 },
         meaning: 'A squared hairline belongs to the gentle rebel: you question rules that don’t make sense, experiment with how life could be lived, and often invent your own way of doing things.' },
       { id: 'receding', label: 'Open corners', sub: 'Hairline sweeps back at the temples', svg: hairlineArt('receding'), el: { water: 1 },
-        meaning: 'Corners that sweep back at the temples reveal an expansive mind — one that leaps ahead intuitively and lands on right answers before all the facts are in. This shape is common among philosophers, scientists, and visionaries.' }
+        meaning: 'Corners that sweep back at the temples reveal an expansive mind, one that leaps ahead intuitively and lands on right answers before all the facts are in. This shape is common among philosophers, scientists, and visionaries.' }
     ]
   },
   {
@@ -1221,22 +1230,22 @@ const QUESTIONS = [
     note: 'In the Taoist tradition, the temples belong to the Wood element and speak to how you seek intensity and transcendence.',
     options: [
       { id: 'full', label: 'Full and smooth', sub: 'Gently rounded', svg: templesArt(true), el: { earth: 1 },
-        meaning: 'Full, smooth temples reflect contentment with the here and now — you find your joy in earthly pleasures, present-moment living, and the good company of the life you already have.' },
+        meaning: 'Full, smooth temples reflect contentment with the here and now; you find your joy in earthly pleasures, present-moment living, and the good company of the life you already have.' },
       { id: 'indented', label: 'Indented', sub: 'A soft hollow at the sides', svg: templesArt(false), el: { wood: 1 },
-        meaning: 'Indented temples mark a soul that seeks intensity and altered states — a longing for transcendence. Channeled well, this is the mystic’s and artist’s gift: meditation, ritual, deep flow states. The invitation is to feed that longing with practices that nourish rather than deplete you.' }
+        meaning: 'Indented temples mark a soul that seeks intensity and altered states, a longing for transcendence. Channeled well, this is the mystic’s and artist’s gift: meditation, ritual, deep flow states. The invitation is to feed that longing with practices that nourish rather than deplete you.' }
     ]
   },
   {
     id: 'browThickness', area: 'The Eyebrows', title: 'How thick are your eyebrows?',
-    note: 'The eyebrows are the "leaves of the tree" — they speak to Liver health, decisions, and stamina.',
+    note: 'The eyebrows are the "leaves of the tree"; they speak to Liver health, decisions, and stamina.',
     options: [
       { id: 'thick', label: 'Thick and full', sub: 'Lush, abundant brows', svg: browArt('thick'), el: { wood: 2 },
-        meaning: 'Thick eyebrows reflect good Liver health and strong stamina for physical action. You enjoy — and need — a challenge, and your system processes life’s toxins, literal and emotional, with vigor.' },
+        meaning: 'Thick eyebrows reflect good Liver health and strong stamina for physical action. You enjoy, and need, a challenge, and your system processes life’s toxins, literal and emotional, with vigor.' },
       { id: 'thin', label: 'Thin or sparse', sub: 'Fine, delicate brows', svg: browArt('thin'), el: { wood: 1 }, care: true,
         careText: 'Thin brows are a call to protect your energy: be wise about alcohol and drugs, keep supplements conservative, and step back from demanding people before you’re depleted.',
         meaning: 'Thin or sparse eyebrows belong to sensitive souls who can get overwhelmed by too many demands on their physical energy. Your gift is refinement; your practice is protecting your reserves.' },
       { id: 'mediumBrow', label: 'Medium', sub: 'Defined but not heavy', svg: browArt('medium'), el: { wood: 1 },
-        meaning: 'Moderately full brows suggest steady Liver energy — enough drive to meet challenges, with a natural sense of pacing.' }
+        meaning: 'Moderately full brows suggest steady Liver energy, enough drive to meet challenges, with a natural sense of pacing.' }
     ]
   },
   {
@@ -1244,101 +1253,101 @@ const QUESTIONS = [
     note: 'Shape tells the story of how you make decisions and move toward what you want.',
     options: [
       { id: 'archSmooth', label: 'Smoothly arched', sub: 'A gentle, even curve', svg: browArt('archSmooth'), el: { wood: 1 },
-        meaning: 'Smooth arched eyebrows mark a harmonious person who tends to be pleasing and can smooth out strife — the classic "courtesan eyebrows" of a natural diplomat.' },
+        meaning: 'Smooth arched eyebrows mark a harmonious person who tends to be pleasing and can smooth out strife, the classic "courtesan eyebrows" of a natural diplomat.' },
       { id: 'archPointed', label: 'Pointed arch', sub: 'A defined peak', svg: browArt('archPointed'), el: { wood: 2 },
         meaning: 'Pointed, arched eyebrows are associated with ambition and the ability to make precise decisions. When you aim, you aim exactly.' },
       { id: 'longFlat', label: 'Long and flat', sub: 'Straight, extended line', svg: browArt('longFlat'), el: { wood: 1 },
-        meaning: 'Long flat eyebrows suggest you take your time when deciding — deliberate, thorough, and even-tempered. Decisions may come slowly, but they come well-considered.' },
+        meaning: 'Long flat eyebrows suggest you take your time when deciding, deliberate, thorough, and even-tempered. Decisions may come slowly, but they come well-considered.' },
       { id: 'short', label: 'Short', sub: 'Ending before the eye does', svg: browArt('short'), el: { wood: 1 },
-        meaning: 'Short eyebrows suggest quick decisions — you’d rather choose and move than deliberate at length. (If your brows stop well before the outer eye, Chinese medicine also gently connects this to thyroid energy worth tending.)' },
+        meaning: 'Short eyebrows suggest quick decisions, you’d rather choose and move than deliberate at length. (If your brows stop well before the outer eye, Chinese medicine also gently connects this to thyroid energy worth tending.)' },
       { id: 'wild', label: 'Wild', sub: 'Untamed, going their own way', svg: browArt('wild'), el: { wood: 2 },
-        meaning: 'Wild eyebrows belong to those who go their own way — perhaps unpredictably so. There’s an untamed creative force in you that resists grooming, in every sense.' }
+        meaning: 'Wild eyebrows belong to those who go their own way, perhaps unpredictably so. There’s an untamed creative force in you that resists grooming, in every sense.' }
     ]
   },
   {
     id: 'noseShape', area: 'The Nose', title: 'Which best describes your nose?',
-    note: 'The nose is the mountain of the face — a central marker of personal power, ambition, and how you assert yourself.',
+    note: 'The nose is the mountain of the face, a central marker of personal power, ambition, and how you assert yourself.',
     options: [
       { id: 'straightBalanced', label: 'Straight & balanced', sub: 'Even line, not especially prominent', svg: profileArt('straightBalanced'), el: { metal: 1 },
-        meaning: 'A straight, balanced nose speaks of steadiness rather than force. You assert yourself when it matters and step back when it doesn’t — a quiet competence that neither dominates a room nor disappears from it. Tradition reads this as well-regulated Metal: fair, measured, and trusted precisely because you feel no need to prove anything.' },
+        meaning: 'A straight, balanced nose speaks of steadiness rather than force. You assert yourself when it matters and step back when it doesn’t, a quiet competence that neither dominates a room nor disappears from it. Tradition reads this as well-regulated Metal: fair, measured, and trusted precisely because you feel no need to prove anything.' },
       { id: 'straight', label: 'Straight & prominent', sub: 'A defined, forward nose', svg: profileArt('straight'), el: { metal: 2 },
-        meaning: 'A straight, prominent nose suggests leadership, self-assurance, and the ability to make things happen. Like a great mountain, you’re a natural leader — willing to take risks and blaze the trail, ensuring safe passage for the people in your expedition.' },
+        meaning: 'A straight, prominent nose suggests leadership, self-assurance, and the ability to make things happen. Like a great mountain, you’re a natural leader, willing to take risks and blaze the trail, ensuring safe passage for the people in your expedition.' },
       { id: 'bulbous', label: 'Rounded or bulbous tip', sub: 'Soft fullness at the tip', svg: profileArt('bulbous'), el: { metal: 1, earth: 1 },
-        meaning: 'A rounded tip indicates a strong appreciation for life’s pleasures and comforts. You tend to be a collector — of objects, relationships, or memories — savoring what is precious.' },
+        meaning: 'A rounded tip indicates a strong appreciation for life’s pleasures and comforts. You tend to be a collector: of objects, relationships, or memories, savoring what is precious.' },
       { id: 'hooked', label: 'Hooked or aquiline', sub: 'A curved, eagle-like line', svg: profileArt('hooked'), el: { metal: 2 },
-        meaning: 'A hooked or aquiline nose is associated with strategic thinking, wisdom, and even royal lineage. It’s a feature seen in many influential people — reflecting resilience and a long view on life.' },
+        meaning: 'A hooked or aquiline nose is associated with strategic thinking, wisdom, and even royal lineage. It’s a feature seen in many influential people, reflecting resilience and a long view on life.' },
       { id: 'bump', label: 'Bump on the bridge', sub: 'A ridge partway down', svg: profileArt('bump'), el: { metal: 2 },
-        meaning: 'A bump on the bridge signals extra leadership ability — often seen in those who carry responsibility or stepped into leading, even reluctantly. These risk-takers usually have great kinesthetic sense, are adept at most things they take on, and love achieving goals.' },
+        meaning: 'A bump on the bridge signals extra leadership ability, often seen in those who carry responsibility or stepped into leading, even reluctantly. These risk-takers usually have great kinesthetic sense, are adept at most things they take on, and love achieving goals.' },
       { id: 'small', label: 'Small or flat', sub: 'Gentle and unassuming', svg: profileArt('small'), el: { earth: 1 },
-        meaning: 'A smaller, flatter nose leans toward collaboration and harmony. You’re community-oriented — working methodically and tirelessly for the people you love. When appreciated and connected, you truly make a community better for everyone.' }
+        meaning: 'A smaller, flatter nose leans toward collaboration and harmony. You’re community-oriented, working methodically and tirelessly for the people you love. When appreciated and connected, you truly make a community better for everyone.' }
     ]
   },
   {
     id: 'noseBridge', area: 'The Nose', title: 'How wide is the bridge of your nose?',
-    note: 'The bridge speaks to stamina — how steadily energy (and, traditionally, income) flows through your life.',
+    note: 'The bridge speaks to stamina, how steadily energy (and, traditionally, income) flows through your life.',
     options: [
       { id: 'even', label: 'Even bridge', sub: 'Neither wide nor narrow', svg: noseBridgeArt('even'), el: { metal: 1 },
-        meaning: 'An even bridge reflects balanced stamina — energy that neither floods nor trickles. You can work hard when the season asks for it and rest without guilt when it doesn’t. Traditionally this reads as steady fortune: not dramatic windfalls, but a reliable current that carries you across the long stretch.' },
+        meaning: 'An even bridge reflects balanced stamina, energy that neither floods nor trickles. You can work hard when the season asks for it and rest without guilt when it doesn’t. Traditionally this reads as steady fortune: not dramatic windfalls, but a reliable current that carries you across the long stretch.' },
       { id: 'broad', label: 'Broad bridge', sub: 'Wide and substantial', svg: noseBridgeArt('broad'), el: { metal: 2 },
-        meaning: 'A broad nose bridge reflects deep stamina — the capacity to work long and steadily toward what you want. Traditionally this is a prosperity sign: energy, and what it earns, flows in generous amounts.' },
+        meaning: 'A broad nose bridge reflects deep stamina, the capacity to work long and steadily toward what you want. Traditionally this is a prosperity sign: energy, and what it earns, flows in generous amounts.' },
       { id: 'narrow', label: 'Narrow bridge', sub: 'Fine and slender', svg: noseBridgeArt('narrow'), el: { metal: 1 },
-        meaning: 'A narrow bridge suggests your gifts flow through the mind more than through physical exertion — refinement over brute effort. Pace yourself, guard your energy, and let your rewards accumulate in steady, elegant increments.' }
+        meaning: 'A narrow bridge suggests your gifts flow through the mind more than through physical exertion, refinement over brute effort. Pace yourself, guard your energy, and let your rewards accumulate in steady, elegant increments.' }
     ]
   },
   {
     id: 'cheeks', area: 'The Cheeks', title: 'How would you describe your cheekbones?',
-    note: 'The cheeks, with the nose, belong to the Metal element — how we value ourselves and others.',
+    note: 'The cheeks, with the nose, belong to the Metal element, how we value ourselves and others.',
     options: [
       { id: 'prominent', label: 'Prominent cheekbones', sub: 'High, defined structure', svg: cheeksArt(true), el: { metal: 2 },
-        meaning: 'Prominent cheekbones often show strength in leadership and integrity. People instinctively trust you to stand for something — your face carries natural authority.' },
+        meaning: 'Prominent cheekbones often show strength in leadership and integrity. People instinctively trust you to stand for something, your face carries natural authority.' },
       { id: 'soft', label: 'Soft or rounded cheeks', sub: 'Gentle, full curves', svg: cheeksArt(false), el: { earth: 1 },
-        meaning: 'Soft, rounded cheeks carry warmth and approachability — a nurturing presence that puts others at ease before you’ve said a word.' }
+        meaning: 'Soft, rounded cheeks carry warmth and approachability, a nurturing presence that puts others at ease before you’ve said a word.' }
     ]
   },
   {
     id: 'lipFullness', area: 'The Mouth', title: 'How full are your lips?',
-    note: 'The mouth tells how you communicate, express emotion, and engage with life’s pleasures — how you give and receive nourishment.',
+    note: 'The mouth tells how you communicate, express emotion, and engage with life’s pleasures, how you give and receive nourishment.',
     options: [
       { id: 'full', label: 'Full lips', sub: 'Generous and soft', svg: lipsArt({ full: true }), el: { earth: 2 },
-        meaning: 'Full lips suggest expressiveness, warmth, and a love of sensory experience — food, touch, beauty, connection. Full lips often show generosity and care: a soul attuned to the sacredness of life’s pleasures.' },
+        meaning: 'Full lips suggest expressiveness, warmth, and a love of sensory experience, food, touch, beauty, connection. Full lips often show generosity and care: a soul attuned to the sacredness of life’s pleasures.' },
       { id: 'thin', label: 'Thin lips', sub: 'Fine, precise lines', svg: lipsArt({ thin: true }), el: { metal: 1 },
-        meaning: 'Thin lips may indicate restraint, practicality, and a more reserved emotional nature — you value precision and find joy in smaller, subtler ways. They’re also a call: let yourself savor more fully, speak more freely, and be present to the beauty around you. (Want to "grow lips"? Practice enjoying more passionate kissing!)' },
+        meaning: 'Thin lips may indicate restraint, practicality, and a more reserved emotional nature; you value precision and find joy in smaller, subtler ways. They’re also a call: let yourself savor more fully, speak more freely, and be present to the beauty around you. (Want to "grow lips"? Practice enjoying more passionate kissing!)' },
       { id: 'mediumLips', label: 'Medium', sub: 'Balanced fullness', svg: lipsArt({}), el: { earth: 1 },
-        meaning: 'Medium lips suggest a balanced relationship with pleasure and expression — you can savor deeply and also hold back when the moment calls for restraint.' }
+        meaning: 'Medium lips suggest a balanced relationship with pleasure and expression; you can savor deeply and also hold back when the moment calls for restraint.' }
     ]
   },
   {
     id: 'mouthWidth', area: 'The Mouth', title: 'How wide is your mouth?',
     options: [
       { id: 'wide', label: 'Wide mouth', sub: 'Generous span', svg: lipsArt({ w: 58, full: true }), el: { earth: 2 },
-        meaning: 'A wide mouth shows the ability to ingest a lot — of food, of experience, of life. You can enjoy a big meal, take in a lot of the world, and you likely have plenty to say about it.' },
+        meaning: 'A wide mouth shows the ability to ingest a lot: of food, of experience, of life. You can enjoy a big meal, take in a lot of the world, and you likely have plenty to say about it.' },
       { id: 'small', label: 'Smaller mouth', sub: 'Petite and contained', svg: lipsArt({ w: 24 }), el: { metal: 1 },
-        meaning: 'A smaller mouth suggests a tendency toward smaller portions of everything, more often — savoring little pleasures throughout the day rather than feasting all at once.' },
+        meaning: 'A smaller mouth suggests a tendency toward smaller portions of everything, more often, savoring little pleasures throughout the day rather than feasting all at once.' },
       { id: 'mediumMouth', label: 'Medium', sub: 'Proportionate width', svg: lipsArt({ w: 40 }), el: { earth: 1 },
-        meaning: 'A medium mouth suggests balanced appetites — you enjoy pleasures in measured doses, aware of how you digest food and experiences alike.' }
+        meaning: 'A medium mouth suggests balanced appetites; you enjoy pleasures in measured doses, aware of how you digest food and experiences alike.' }
     ]
   },
   {
     id: 'mouthCorners', area: 'The Mouth', title: 'Which way do the corners of your mouth turn at rest?',
     options: [
       { id: 'up', label: 'Turn upward', sub: 'A resting hint of a smile', svg: lipsArt({ corners: 1, full: true }), el: { fire: 1 },
-        meaning: 'Upturned corners of the mouth reflect a natural optimism — a cheerful approach to life that people can read from across the room.' },
+        meaning: 'Upturned corners of the mouth reflect a natural optimism, a cheerful approach to life that people can read from across the room.' },
       { id: 'down', label: 'Turn downward', sub: 'A serious set', svg: lipsArt({ corners: -1 }), el: { water: 1 },
-        meaning: 'A downturned mouth doesn’t necessarily mean unhappiness — it may indicate seriousness, pensiveness, or a life shaped by sorrow that has deepened your soul. There is gravity and wisdom here.' },
+        meaning: 'A downturned mouth doesn’t necessarily mean unhappiness; it may indicate seriousness, pensiveness, or a life shaped by sorrow that has deepened your soul. There is gravity and wisdom here.' },
       { id: 'level', label: 'Fairly level', sub: 'Even and neutral', svg: lipsArt({}), el: {},
-        meaning: 'Level mouth corners suggest emotional evenness — your expression rests in the present rather than tilting toward hope or heaviness.' }
+        meaning: 'Level mouth corners suggest emotional evenness, your expression rests in the present rather than tilting toward hope or heaviness.' }
     ]
   },
   {
     id: 'philtrum', area: 'The Philtrum', title: 'What is the groove above your lip like?',
-    note: 'The philtrum — the little channel between nose and mouth — is the meeting place of heaven and earth on your face. It speaks to creativity, vitality, and life force.',
+    note: 'The philtrum, the little channel between nose and mouth, is the meeting place of heaven and earth on your face. It speaks to creativity, vitality, and life force.',
     options: [
       { id: 'deep', label: 'Deep and defined', sub: 'A clear, well-carved groove', svg: philtrumArt('deep'), el: { water: 2 },
-        meaning: 'A deep, well-defined philtrum holds abundant creative and generative life force — the energy of making things, whether children, art, businesses, or ideas. This wellspring wants an outlet; keep creating and it keeps flowing.' },
+        meaning: 'A deep, well-defined philtrum holds abundant creative and generative life force, the energy of making things, whether children, art, businesses, or ideas. This wellspring wants an outlet; keep creating and it keeps flowing.' },
       { id: 'long', label: 'Long', sub: 'An extended channel', svg: philtrumArt('long'), el: { water: 2 },
-        meaning: 'A long philtrum is a classic vitality and longevity sign — a deep river of life force with an even keel. It also suggests you don’t take teasing to heart; you carry an unruffled inner steadiness.' },
+        meaning: 'A long philtrum is a classic vitality and longevity sign, a deep river of life force with an even keel. It also suggests you don’t take teasing to heart; you carry an unruffled inner steadiness.' },
       { id: 'shallow', label: 'Soft or shallow', sub: 'A gentle, subtle groove', svg: philtrumArt('shallow'), el: { water: 1 },
-        meaning: 'A softer philtrum simply means your creative river runs quieter — and the beautiful teaching is that it grows with use. Regular creative practice deepens the channel, in life and, tradition says, on the face itself.' }
+        meaning: 'A softer philtrum simply means your creative river runs quieter, and the beautiful teaching is that it grows with use. Regular creative practice deepens the channel, in life and, tradition says, on the face itself.' }
     ]
   },
   {
@@ -1346,34 +1355,38 @@ const QUESTIONS = [
     note: 'Ears reflect inherited constitution, early influences, and how you process intuitive information.',
     options: [
       { id: 'large', label: 'Large ears', sub: 'Generous and prominent', svg: earArt('large'), el: { water: 2 },
-        meaning: 'Large ears are associated with strong constitution, openness to guidance, and the ability to absorb wisdom. In many traditions they’re a symbol of good fortune and longevity — think of the big ears on statues of the Buddha.' },
+        meaning: 'Large ears are associated with strong constitution, openness to guidance, and the ability to absorb wisdom. In many traditions they’re a symbol of good fortune and longevity, think of the big ears on statues of the Buddha.' },
       { id: 'small', label: 'Smaller ears', sub: 'Petite and refined', svg: earArt('small'), el: { water: 1 }, care: true,
-        careText: 'Smaller ears carry the wisdom of conservation: honor your interest in physical activity — if movement feels good, do it; if you feel tired after, choose movements that feel right for you, and rest when it calls.',
-        meaning: 'Smaller ears speak to the wisdom of conservation — you’re probably not drawn to pushing endurance limits or leaping out of planes, and that’s exactly right. Your energy is precious; pacing it is a skill.' },
+        careText: 'Smaller ears carry the wisdom of conservation: honor your interest in physical activity, if movement feels good, do it; if you feel tired after, choose movements that feel right for you, and rest when it calls.',
+        meaning: 'Smaller ears speak to the wisdom of conservation, you’re probably not drawn to pushing endurance limits or leaping out of planes, and that’s exactly right. Your energy is precious; pacing it is a skill.' },
       { id: 'mediumEars', label: 'Medium', sub: 'Proportionate', svg: earArt('small'), el: { water: 1 },
-        meaning: 'Medium ears suggest a balanced constitution — steady reserves, and a healthy instinct for when to push and when to rest.' }
+        meaning: 'Medium ears suggest a balanced constitution, steady reserves, and a healthy instinct for when to push and when to rest.' }
     ]
   },
   {
     id: 'earPosition', area: 'The Ears', title: 'How do your ears sit against your head?',
     options: [
+      { id: 'natural', label: 'Sit naturally flat', sub: 'Neither prominent nor tucked', svg: earArt('natural'), el: { water: 1 },
+        meaning: 'Ears that sit naturally against the head belong to people who balance speaking and listening. You can hold a room when you need to, and step back to take things in when that serves better. Tradition reads this as an easy, unforced presence: people find you straightforward to talk to and simple to trust.' },
       { id: 'protruding', label: 'Stick out a bit', sub: 'Visible from the front', svg: earArt('protruding'), el: { fire: 1 },
-        meaning: 'Protruding ears belong to people who speak with power — a trait often seen in strong orators and excellent public speakers. (Barack Obama is a classic example.) When you talk, people listen.' },
+        meaning: 'Protruding ears belong to people who speak with power, a trait often seen in strong orators and excellent public speakers. (Barack Obama is a classic example.) When you talk, people listen.' },
       { id: 'close', label: 'Close to the head', sub: 'Tucked and flat', svg: earArt('close'), el: { water: 1 },
-        meaning: 'Ears close to the head reflect the persona of a good listener. You take information in deeply — a quality that serves beautifully in any role where truly hearing people matters.' },
+        meaning: 'Ears close to the head reflect the persona of a good listener. You take information in deeply, a quality that serves beautifully in any role where truly hearing people matters.' },
       { id: 'back', label: 'Slant backwards', sub: 'Angled toward the back', svg: earArt('back'), el: { water: 1 },
-        meaning: 'Ears that slant backwards mark unique thinkers — you think for yourself, sometimes in unusual ways, and may hear what isn’t said: the implied, the hidden, even the untrue.' }
+        meaning: 'Ears that slant backwards mark unique thinkers; you think for yourself, sometimes in unusual ways, and may hear what isn’t said: the implied, the hidden, even the untrue.' }
     ]
   },
   {
     id: 'earLobes', area: 'The Ears', title: 'What are your earlobes like?',
     options: [
+      { id: 'medium', label: 'Medium lobes', sub: 'Neither full nor small', svg: lobeArt('medium'), el: { water: 1 },
+        meaning: 'Medium earlobes sit in the comfortable middle: enough foresight to plan for later, enough presence to enjoy what is here now. Tradition reads this as steady good fortune rather than dramatic reversal, the kind that accumulates quietly and holds.' },
       { id: 'large', label: 'Full and generous', sub: 'Plump, rounded lobes', svg: lobeArt('large'), el: { water: 2, earth: 1 },
-        meaning: 'Full earlobes are a treasured sign in face reading: wisdom, patience, and the long view. You plant seeds you’re willing to tend for years — and tradition says you’ll be well cared for in your later life, surrounded by what you’ve grown.' },
+        meaning: 'Full earlobes are a treasured sign in face reading: wisdom, patience, and the long view. You plant seeds you’re willing to tend for years, and tradition says you’ll be well cared for in your later life, surrounded by what you’ve grown.' },
       { id: 'longthin', label: 'Long and slender', sub: 'Extended, fine lobes', svg: lobeArt('longthin'), el: { water: 1 },
-        meaning: 'Long, slender lobes point to good fortune in later life with a fiercely independent flavor — you intend to keep your own keys, thank you very much, staying capable and self-directed to the end.' },
+        meaning: 'Long, slender lobes point to good fortune in later life with a fiercely independent flavor; you intend to keep your own keys, thank you very much, staying capable and self-directed to the end.' },
       { id: 'small', label: 'Small', sub: 'Petite, close lobes', svg: lobeArt('small'), el: { water: 1 },
-        meaning: 'Smaller lobes belong to present-moment people: you’d rather live fully now than defer joy for someday. The gentle counsel is to tuck a little away for future-you — she’ll thank you.' }
+        meaning: 'Smaller lobes belong to present-moment people: you’d rather live fully now than defer joy for someday. The gentle counsel is to tuck a little away for future-you, she’ll thank you.' }
     ]
   },
   {
@@ -1383,32 +1396,32 @@ const QUESTIONS = [
       { id: 'high', label: 'High', sub: 'At or above the brow line', svg: earHeightArt('high'), el: {},
         meaning: 'High-set ears mark an early riser in life: you tend to find your direction, and recognition for it, young. Mastery came (or is coming) ahead of schedule.' },
       { id: 'mid', label: 'In the middle', sub: 'Between brow and nose lines', svg: earHeightArt('mid'), el: {},
-        meaning: 'Mid-set ears suggest a steady unfolding — your path reveals itself in seasons, each stage arriving when you’re ready for it.' },
+        meaning: 'Mid-set ears suggest a steady unfolding, your path reveals itself in seasons, each stage arriving when you’re ready for it.' },
       { id: 'low', label: 'Lower', sub: 'Closer to the nose line', svg: earHeightArt('low'), el: {},
-        meaning: 'Lower-set ears are the mark of the late bloomer — and late blooms are often the most spectacular. Some of history’s most consequential lives found their true work in their later chapters.' }
+        meaning: 'Lower-set ears are the mark of the late bloomer, and late blooms are often the most spectacular. Some of history’s most consequential lives found their true work in their later chapters.' }
     ]
   },
   {
     id: 'chinJaw', area: 'The Chin & Jawline', title: 'Which best describes your chin and jawline?',
-    note: 'The lower face shows how you act in the world — follow-through, drive, and how you respond to challenge.',
+    note: 'The lower face shows how you act in the world, follow-through, drive, and how you respond to challenge.',
     options: [
       { id: 'balanced', label: 'Balanced chin and jawline', sub: 'Neither strong nor receding', svg: faceArt('plain'), el: { water: 1 },
-        meaning: 'A balanced chin and jawline suggest willpower that meets the moment rather than overpowering it. You can hold your ground without hardening, and yield without collapsing. In the lower face this is read as sustainable drive — the kind of follow-through still with you in the later decades, because it never burned itself out.' },
+        meaning: 'A balanced chin and jawline suggest willpower that meets the moment rather than overpowering it. You can hold your ground without hardening, and yield without collapsing. In the lower face this is read as sustainable drive, the kind of follow-through still with you in the later decades, because it never burned itself out.' },
       { id: 'strong', label: 'Strong, defined jawline', sub: 'Angular and firm', svg: faceArt('strong'), el: { water: 2 },
-        meaning: 'A strong jawline reveals courage, athleticism, and determination. You face difficulty head-on and are rarely deterred — using your will to move not just heavy objects but, spiritually, to work through hard things. There can be a proud stubbornness here, and forthrightness too.' },
+        meaning: 'A strong jawline reveals courage, athleticism, and determination. You face difficulty head-on and are rarely deterred, using your will to move not just heavy objects but, spiritually, to work through hard things. There can be a proud stubbornness here, and forthrightness too.' },
       { id: 'soft', label: 'Soft or receding chin', sub: 'Gentle, yielding line', svg: faceArt('soft'), el: { water: 1 },
-        meaning: 'A soft or receding chin doesn’t mean weakness — it can indicate flexibility, spiritual detachment, and a preference for harmony over force. You may flow rather than push, bend rather than break.' },
+        meaning: 'A soft or receding chin doesn’t mean weakness; it can indicate flexibility, spiritual detachment, and a preference for harmony over force. You may flow rather than push, bend rather than break.' },
       { id: 'wide', label: 'Wide jaw', sub: 'Broad through the lower face', svg: faceArt('wide'), el: { water: 2 },
-        meaning: 'A wide jaw suggests roots that spread broad — like a fibrous root system holding rich soil. You are stable without being rigid: grounded across many areas of life at once.' },
+        meaning: 'A wide jaw suggests roots that spread broad, like a fibrous root system holding rich soil. You are stable without being rigid: grounded across many areas of life at once.' },
       { id: 'pointed', label: 'Long or pointed chin', sub: 'Tapered and extended', svg: faceArt('pointed'), el: { water: 1 },
-        meaning: 'A pointed or longer chin suggests deep tap roots — the ability to hold your position and remain stable in shifting situations. When you plant yourself, you stay planted.' }
+        meaning: 'A pointed or longer chin suggests deep tap roots, the ability to hold your position and remain stable in shifting situations. When you plant yourself, you stay planted.' }
     ]
   }
 ];
 </script>
 <script>
 /* ==========================================================
-   App logic — views, quiz flow, scoring, reading generation
+   App logic, views, quiz flow, scoring, reading generation
    ========================================================== */
 
 const state = { name: '', started: false, current: 0, answers: {}, done: false, autoFilled: {} };
@@ -1448,16 +1461,16 @@ function renderQuiz() {
       <div class="quiz-start-card fade-up visible">
         <span class="eyebrow">Your Illustrated Questionnaire</span>
         <h2>Let's read <em class="brand" style="color:var(--deep-rose)">your</em> face</h2>
-        <p>You'll answer ${QUESTIONS.length} short questions about your features, each with simple pictures to compare against. A mirror nearby helps! Remember — features are never good or bad. They are <em>resources</em>.</p>
+        <p>You'll answer ${QUESTIONS.length} short questions about your features, each with simple pictures to compare against. A mirror nearby helps! Remember, features are never good or bad. They are <em>resources</em>.</p>
         <div class="name-field">
           <input type="text" id="name-input" placeholder="Your first name (optional)" maxlength="40">
         </div>
-        <p style="font-size:0.8rem;color:var(--taupe);">Nothing you enter is saved or sent anywhere — the reading happens right here on this page.</p>
+        <p style="font-size:0.8rem;color:var(--taupe);">Nothing you enter is saved or sent anywhere, the reading happens right here on this page.</p>
         <div style="margin-top:22px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
           <button class="btn-primary" onclick="startQuiz()">Answer the Questions</button>
           <button class="btn-outline" onclick="startQuiz(); showView('scan')">Scan My Face First</button>
         </div>
-        <p style="font-size:0.8rem;color:var(--taupe);margin-top:16px;">A scan measures what it can from your photos and fills those answers in for you — you review every one.</p>
+        <p style="font-size:0.8rem;color:var(--taupe);margin-top:16px;">A scan measures what it can from your photos and fills those answers in for you; you review every one.</p>
       </div>`;
     return;
   }
@@ -1472,7 +1485,7 @@ function renderQuiz() {
     <div class="quiz-question">
       <h2>${q.title}</h2>
       ${q.note ? `<p class="quiz-note">${q.note}</p>` : '<p class="quiz-note"></p>'}
-      ${state.autoFilled[q.id] ? `<div class="measured-flag">📐 <strong>Measured from your photo.</strong> We've chosen this for you — please look in a mirror and change it if it doesn't feel right. You know your face best.</div>` : ''}
+      ${state.autoFilled[q.id] ? `<div class="measured-flag">📐 <strong>Measured from your photo.</strong> We've chosen this for you, please look in a mirror and change it if it doesn't feel right. You know your face best.</div>` : ''}
       <div class="option-grid">
         ${q.options.map(o => `
           <button class="option-card ${answered === o.id ? 'selected' : ''}" onclick="selectOption('${q.id}','${o.id}')">
@@ -1584,7 +1597,7 @@ function renderReading() {
     <div class="reading-hero">
       <span class="eyebrow">The Wisdom of You</span>
       <h1>${name ? name + ', your' : 'Your'} face is a <em>living jewel</em></h1>
-      <p class="lead">Your features are divinely chiseled. They are messages, markers — stories written by time, experience, inheritance, and purpose. Here is what the ancient map of your face reveals.</p>
+      <p class="lead">Your features are divinely chiseled. They are messages, markers, stories written by time, experience, inheritance, and purpose. Here is what the ancient map of your face reveals.</p>
     </div>
 
     ${lotus}
@@ -1610,16 +1623,16 @@ function renderReading() {
         <p style="margin-bottom:6px;"><strong style="color:var(--deep-rose);font-weight:500;">Support your ${el.name} by:</strong></p>
         <ul class="support-list">${el.support.map(s => `<li>${s}</li>`).join('')}</ul>
         <div class="taoist-note">🌿 <strong>Taoist wisdom:</strong> ${el.taoist}</div>
-        <div class="taoist-note" style="background:var(--cream-warm);">✨ <strong>Your radiance style — ${el.radiance.name}:</strong> ${el.radiance.desc}</div>
+        <div class="taoist-note" style="background:var(--cream-warm);">✨ <strong>Your radiance style: ${el.radiance.name}:</strong> ${el.radiance.desc}</div>
       </div>
 
-      <p style="margin-top:22px;text-align:center;color:var(--cocoa-soft);font-size:0.95rem;max-width:560px;margin-left:auto;margin-right:auto;">Your second-strongest current is <strong style="color:${second.color}">${second.name}</strong> — ${second.zone.split('·').slice(1).join('·').trim().toLowerCase()}. Remember: no element is better than another. Each is a facet of the gem.</p>
+      <p style="margin-top:22px;text-align:center;color:var(--cocoa-soft);font-size:0.95rem;max-width:560px;margin-left:auto;margin-right:auto;">Your second-strongest current is <strong style="color:${second.color}">${second.name}</strong>, ${second.zone.split('·').slice(1).join('·').trim().toLowerCase()}. Remember: no element is better than another. Each is a facet of the gem.</p>
     </section>
 
     ${lotus}
 
     <h2 class="reading-section-title">Feature by feature</h2>
-    <p class="reading-section-sub">Each feature is symbolic, functional, and meaningful — read not with criticism, but with reverence.</p>
+    <p class="reading-section-sub">Each feature is symbolic, functional, and meaningful, read not with criticism, but with reverence.</p>
 
     ${areas.map(g => `
       <div>
@@ -1647,7 +1660,7 @@ function renderReading() {
         <button class="btn-outline" onclick="retake()">Retake the Questionnaire</button>
         <a class="btn-outline" href="https://www.youtube.com/@WiseHeartsConnect" target="_blank" rel="noopener">Watch Hilarey on YouTube</a>
       </div>
-      <p class="disclaimer">This reading is drawn from "The Wisdom of You" by Hilarey Boly and is offered for reflection, self-discovery, and enjoyment. It is not medical, psychological, or health advice. For a deeper, personal face reading with Hilarey — virtual, in-person, or from photos — visit Wise Hearts Connect.</p>
+      <p class="disclaimer">This reading is drawn from "The Wisdom of You" by Hilarey Boly and is offered for reflection, self-discovery, and enjoyment. It is not medical, psychological, or health advice. For a deeper, personal face reading with Hilarey, virtual, in-person, or from photos, visit Wise Hearts Connect.</p>
     </div>`;
 
   // animate bars
@@ -1684,8 +1697,8 @@ observeFades();
 /* ==========================================================
    PHOTO ENGINE
    1. Split-face mirror (public / private self)
-   2. Front-photo scan — auto-measures proportions
-   3. Profile photo — guided tap points
+   2. Front-photo scan, auto-measures proportions
+   3. Profile photo, guided tap points
    Everything runs on-device. No uploads, no API calls.
    ========================================================== */
 
@@ -2018,7 +2031,7 @@ async function handleFrontPhoto(file) {
     const res = lmk.detect(photo.frontImg);
     if (!res.faceLandmarks || !res.faceLandmarks.length) {
       status.className = 'scan-status warn';
-      status.innerHTML = "We couldn't find a face in that photo. Try one facing the camera straight on, in even light — or just answer the questions yourself.";
+      status.innerHTML = "We couldn't find a face in that photo. Try one facing the camera straight on, in even light, or just answer the questions yourself.";
       return;
     }
     const pts = res.faceLandmarks[0].map(l => ({ x: l.x * photo.frontImg.width, y: l.y * photo.frontImg.height }));
@@ -2028,25 +2041,25 @@ async function handleFrontPhoto(file) {
     applyScanAnswers(answers);
 
     let note = '';
-    if (!q.ok) note = ' <em>Your head looks slightly turned or tilted, so a few measurements may be off — please review them closely.</em>';
+    if (!q.ok) note = ' <em>Your head looks slightly turned or tilted, so a few measurements may be off, please review them closely.</em>';
     status.className = 'scan-status good';
     status.innerHTML = `✓ Measured <strong>${Object.keys(answers).length}</strong> features from your front photo.${note}`;
     updateScanSummary();
   } catch (err) {
     status.className = 'scan-status warn';
-    status.innerHTML = "The face finder couldn't load (it needs an internet connection the first time). No problem — you can tap the points on a side photo below, or answer all the questions yourself.";
+    status.innerHTML = "The face finder couldn't load (it needs an internet connection the first time). No problem; you can tap the points on a side photo below, or answer all the questions yourself.";
   }
 }
 
 /* ==========================================================
-   3. PROFILE PHOTO — guided tap points
+   3. PROFILE PHOTO, guided tap points
    ========================================================== */
 
 const PROFILE_STEPS = [
   { key: 'hairline', label: 'Hairline', hint: 'Tap where your hair begins at the top of your forehead.' },
   { key: 'brow', label: 'Brow ridge', hint: 'Tap the ridge of bone just above your eye.' },
   { key: 'bridge', label: 'Top of the nose', hint: 'Tap the dip where your nose meets your brow.' },
-  { key: 'midNose', label: 'Middle of the nose', hint: 'Tap the middle of the bridge of your nose — right where a bump would be.' },
+  { key: 'midNose', label: 'Middle of the nose', hint: 'Tap the middle of the bridge of your nose, right where a bump would be.' },
   { key: 'tip', label: 'Nose tip', hint: 'Tap the very tip of your nose.' },
   { key: 'noseBase', label: 'Base of the nose', hint: 'Tap underneath, where your nose meets your upper lip.' },
   { key: 'chin', label: 'Chin', hint: 'Tap the furthest-forward point of your chin.' },
@@ -2096,7 +2109,7 @@ function analyseProfilePoints(pt) {
   const lobeLen = Math.abs(pt.earBottom.y - pt.earAttach.y) / (Math.abs(pt.earBottom.y - pt.earTop.y) || 1);
   if (lobeLen > 0.26) A.earLobes = 'large';
   else if (lobeLen < 0.12) A.earLobes = 'small';
-  else A.earLobes = 'longthin';
+  else A.earLobes = 'medium';
 
   return A;
 }
@@ -2179,7 +2192,7 @@ function finishProfile() {
   const status = document.getElementById('profile-status');
   status.className = 'scan-status good';
   status.style.display = '';
-  status.innerHTML = `✓ Read <strong>${Object.keys(answers).length}</strong> more features from your profile — including your ears.`;
+  status.innerHTML = `✓ Read <strong>${Object.keys(answers).length}</strong> more features from your profile, including your ears.`;
   updateScanSummary();
 }
 
@@ -2203,7 +2216,7 @@ function updateScanSummary() {
   box.style.display = '';
   box.innerHTML = `
     <h3>${n} of ${total} answered from your photos</h3>
-    <p>The rest are things a photo simply can't see — the thickness of your eyebrows, the shadows beneath your eyes, whether your temples are hollow. You'll answer those yourself, and you'll get to check every measurement we made.</p>
+    <p>The rest are things a photo simply can't see, the thickness of your eyebrows, the shadows beneath your eyes, whether your temples are hollow. You'll answer those yourself, and you'll get to check every measurement we made.</p>
     <button class="btn-primary" style="margin-top:8px;" onclick="state.started = true; showView('quiz')">Review &amp; Finish My Reading →</button>`;
 }
 
