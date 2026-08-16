@@ -134,6 +134,7 @@ em.brand { font-style: italic; }
 .prose p:last-child { margin-bottom: 0; }
 
 .zone-figure { display: flex; justify-content: center; }
+.zone-figure svg { max-width: 100%; height: auto; }
 .zone-legend { list-style: none; margin-top: 8px; }
 .zone-legend li { margin-bottom: 18px; padding-left: 18px; border-left: 3px solid var(--blush-deep); }
 .zone-legend li strong { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; display: block; }
@@ -428,7 +429,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     </div>
     <div class="two-col">
       <div class="zone-figure fade-up">
-        <svg viewBox="0 0 220 280" width="260" xmlns="http://www.w3.org/2000/svg" aria-label="Face divided into three zones">
+        <svg viewBox="-26 0 272 280" width="260" xmlns="http://www.w3.org/2000/svg" aria-label="Face divided into three zones">
           <ellipse cx="110" cy="140" rx="78" ry="112" fill="#FFFFFF" stroke="#3A2F2C" stroke-width="2"/>
           <path d="M32 104 Q110 88 188 104" stroke="#C26F63" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
           <path d="M36 186 Q110 200 184 186" stroke="#C26F63" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
@@ -881,6 +882,7 @@ function browBoneArt(strong) {
 function profileArt(nose) {
   // side profile facing left
   const noses = {
+    straightBalanced: `L 53 41 L 48 61 L 57 66`,
     straight: `L 50 40 L 40 62 L 54 66`,
     bulbous: `L 52 40 L 47 56 Q 38 58 40 66 Q 42 72 52 68`,
     hooked: `L 51 38 Q 40 48 42 58 Q 42 64 50 68 L 55 67`,
@@ -892,6 +894,7 @@ function profileArt(nose) {
   let s = `<path d="M 90 8 Q 124 12 128 46 Q 129 70 122 96 L 80 96 Q 72 92 73 85 Q 66 83 68 77 Q 62 75 65 70 L 60 66 Q 57 63 61 60 Q 60 54 63 47 Q 64 34 72 26 Q 78 12 90 8 Z" fill="#fff" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>`;
   // overwrite the nose region with variant line
   const variants = {
+    straightBalanced: `<path d="M63 47 L51 63 L59 67 L61 66" fill="#fff" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>`,
     straight: `<path d="M63 47 L45 64 L58 68 L61 66" fill="#fff" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>`,
     bulbous: `<path d="M63 47 L54 58 Q42 60 44 68 Q46 74 57 70 L61 66" fill="#fff" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>`,
     hooked: `<path d="M63 45 Q46 52 47 62 Q48 68 54 70 L61 66" fill="#fff" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>`,
@@ -988,14 +991,14 @@ function templesArt(full) {
     <path d="M117 42 Q121 46 117 52" stroke="${TAUPE}" stroke-width="1.3" fill="none"/>`);
 }
 
-function noseBridgeArt(broad) {
+function noseBridgeArt(kind) {
   const brows = `<path d="M48 26 Q62 20 76 25 M94 25 Q108 20 122 26" stroke="${INK}" stroke-width="3" stroke-linecap="round"/>`;
-  const off = broad ? 14 : 5;
+  const off = { broad: 14, even: 9, narrow: 5 }[kind];
   return S(brows + `
     <path d="M ${85 - off} 32 Q ${85 - off - 3} 55 ${85 - off - 6} 72 Q ${85 - off - 14} 78 ${85 - off - 8} 86 Q 85 92 ${85 + off + 8} 86 Q ${85 + off + 14} 78 ${85 + off + 6} 72 Q ${85 + off + 3} 55 ${85 + off} 32" fill="#fff" stroke="${INK}" stroke-width="2.4" stroke-linecap="round"/>
     <path d="M ${85 - off - 6} 84 Q ${85 - off - 2} 87 ${85 - off + 2} 85 M ${85 + off + 6} 84 Q ${85 + off + 2} 87 ${85 + off - 2} 85" stroke="${INK}" stroke-width="1.8" fill="none"/>
-    <path d="M ${85 - off - 2} 46 L ${85 + off + 2} 46" stroke="${DEEP}" stroke-width="1.6"/>
-    <path d="M ${85 - off - 2} 42 L ${85 - off - 2} 50 M ${85 + off + 2} 42 L ${85 + off + 2} 50" stroke="${DEEP}" stroke-width="1.6"/>`);
+    <path d="M ${85 - off - 2} 36 L ${85 + off + 2} 36" stroke="${DEEP}" stroke-width="1.6"/>
+    <path d="M ${85 - off - 2} 32 L ${85 - off - 2} 40 M ${85 + off + 2} 32 L ${85 + off + 2} 40" stroke="${DEEP}" stroke-width="1.6"/>`);
 }
 
 function philtrumArt(kind) {
@@ -1256,6 +1259,8 @@ const QUESTIONS = [
     id: 'noseShape', area: 'The Nose', title: 'Which best describes your nose?',
     note: 'The nose is the mountain of the face — a central marker of personal power, ambition, and how you assert yourself.',
     options: [
+      { id: 'straightBalanced', label: 'Straight & balanced', sub: 'Even line, not especially prominent', svg: profileArt('straightBalanced'), el: { metal: 1 },
+        meaning: 'A straight, balanced nose speaks of steadiness rather than force. You assert yourself when it matters and step back when it doesn’t — a quiet competence that neither dominates a room nor disappears from it. Tradition reads this as well-regulated Metal: fair, measured, and trusted precisely because you feel no need to prove anything.' },
       { id: 'straight', label: 'Straight & prominent', sub: 'A defined, forward nose', svg: profileArt('straight'), el: { metal: 2 },
         meaning: 'A straight, prominent nose suggests leadership, self-assurance, and the ability to make things happen. Like a great mountain, you’re a natural leader — willing to take risks and blaze the trail, ensuring safe passage for the people in your expedition.' },
       { id: 'bulbous', label: 'Rounded or bulbous tip', sub: 'Soft fullness at the tip', svg: profileArt('bulbous'), el: { metal: 1, earth: 1 },
@@ -1272,9 +1277,11 @@ const QUESTIONS = [
     id: 'noseBridge', area: 'The Nose', title: 'How wide is the bridge of your nose?',
     note: 'The bridge speaks to stamina — how steadily energy (and, traditionally, income) flows through your life.',
     options: [
-      { id: 'broad', label: 'Broad bridge', sub: 'Wide and substantial', svg: noseBridgeArt(true), el: { metal: 2 },
+      { id: 'even', label: 'Even bridge', sub: 'Neither wide nor narrow', svg: noseBridgeArt('even'), el: { metal: 1 },
+        meaning: 'An even bridge reflects balanced stamina — energy that neither floods nor trickles. You can work hard when the season asks for it and rest without guilt when it doesn’t. Traditionally this reads as steady fortune: not dramatic windfalls, but a reliable current that carries you across the long stretch.' },
+      { id: 'broad', label: 'Broad bridge', sub: 'Wide and substantial', svg: noseBridgeArt('broad'), el: { metal: 2 },
         meaning: 'A broad nose bridge reflects deep stamina — the capacity to work long and steadily toward what you want. Traditionally this is a prosperity sign: energy, and what it earns, flows in generous amounts.' },
-      { id: 'narrow', label: 'Narrow bridge', sub: 'Fine and slender', svg: noseBridgeArt(false), el: { metal: 1 },
+      { id: 'narrow', label: 'Narrow bridge', sub: 'Fine and slender', svg: noseBridgeArt('narrow'), el: { metal: 1 },
         meaning: 'A narrow bridge suggests your gifts flow through the mind more than through physical exertion — refinement over brute effort. Pace yourself, guard your energy, and let your rewards accumulate in steady, elegant increments.' }
     ]
   },
@@ -1385,6 +1392,8 @@ const QUESTIONS = [
     id: 'chinJaw', area: 'The Chin & Jawline', title: 'Which best describes your chin and jawline?',
     note: 'The lower face shows how you act in the world — follow-through, drive, and how you respond to challenge.',
     options: [
+      { id: 'balanced', label: 'Balanced chin and jawline', sub: 'Neither strong nor receding', svg: faceArt('plain'), el: { water: 1 },
+        meaning: 'A balanced chin and jawline suggest willpower that meets the moment rather than overpowering it. You can hold your ground without hardening, and yield without collapsing. In the lower face this is read as sustainable drive — the kind of follow-through still with you in the later decades, because it never burned itself out.' },
       { id: 'strong', label: 'Strong, defined jawline', sub: 'Angular and firm', svg: faceArt('strong'), el: { water: 2 },
         meaning: 'A strong jawline reveals courage, athleticism, and determination. You face difficulty head-on and are rarely deterred — using your will to move not just heavy objects but, spiritually, to work through hard things. There can be a proud stubbornness here, and forthrightness too.' },
       { id: 'soft', label: 'Soft or receding chin', sub: 'Gentle, yielding line', svg: faceArt('soft'), el: { water: 1 },
@@ -1933,7 +1942,10 @@ function analyseFrontLandmarks(p) {
   else A.browShape = 'short';
 
   // --- nose bridge width ---
-  A.noseBridge = (dist(p[LM.bridgeL], p[LM.bridgeR]) / eyeW) > 0.62 ? 'broad' : 'narrow';
+  const bridgeRatio = dist(p[LM.bridgeL], p[LM.bridgeR]) / eyeW;
+  if (bridgeRatio > 0.68) A.noseBridge = 'broad';
+  else if (bridgeRatio < 0.56) A.noseBridge = 'narrow';
+  else A.noseBridge = 'even';
 
   // --- mouth ---
   const mouthW = dist(p[LM.mouthL], p[LM.mouthR]);
@@ -1964,6 +1976,7 @@ function analyseFrontLandmarks(p) {
   if (jawRatio > 0.86) A.chinJaw = 'wide';
   else if (jawRatio < 0.66 && chinLen > 0.21) A.chinJaw = 'pointed';
   else if (jawRatio > 0.78) A.chinJaw = 'strong';
+  else if (jawRatio > 0.70) A.chinJaw = 'balanced';
   else A.chinJaw = 'soft';
 
   return A;
@@ -2063,7 +2076,7 @@ function analyseProfilePoints(pt) {
   else if (tipDrop > 0.012 && projection > 0.12) A.noseShape = 'hooked';
   else if (projection < 0.085) A.noseShape = 'small';
   else if (tipDrop < -0.03) A.noseShape = 'bulbous';
-  else A.noseShape = 'straight';
+  else A.noseShape = projection < 0.115 ? 'straightBalanced' : 'straight';
 
   // Chin projection relative to the brow
   const chinOut = (fwd(pt.chin) - fwd(pt.brow)) / faceH;
