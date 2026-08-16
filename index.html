@@ -156,10 +156,24 @@ p  { color: var(--cocoa-soft); }
 .mobile-menu {
   display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
   background: var(--cream); z-index: 99; flex-direction: column;
-  align-items: center; justify-content: center; gap: 32px;
+  align-items: stretch; justify-content: flex-start; gap: 0;
+  padding: 4px 28px calc(32px + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
 }
 .mobile-menu.open { display: flex; }
-.mobile-menu a { font-family: var(--font-display); font-size: 2rem; color: var(--cocoa-ink); }
+
+.mobile-menu a {
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cocoa-ink); text-decoration: none;
+  padding: 20px 2px; border-bottom: 1px solid var(--blush-deep);
+  transition: color 0.2s;
+}
+.mobile-menu a:hover, .mobile-menu a:active { color: var(--clay-rose); }
+.mobile-menu a.btn-primary {
+  margin-top: 28px; border-bottom: none; text-align: center;
+  padding: 16px 24px; color: var(--white);
+}
 .mobile-menu a:hover { color: var(--deep-rose); }
 
 /* --- Lotus divider (brand motif) --- */
@@ -421,16 +435,16 @@ label {
 </section>
 
 <!-- FREE FACE READING TOOL -->
-<section class="bundle-section" id="face-reading-promo">
-  <div class="bundle-inner">
-    <div class="bundle-img fade-up">
-      <img src="assets/services/face-reading.jpg" alt="Hilarey Boly reading a face" loading="lazy" width="800" height="600" />
+<section class="about-section" id="face-reading-promo">
+  <div class="about-inner">
+    <div class="about-img-wrap fade-up">
+      <img src="assets/services/face-reading.jpg" alt="Hilarey Boly in her practice room" loading="lazy" width="800" height="600" />
     </div>
-    <div class="bundle-text fade-up">
+    <div class="about-text fade-up">
       <span class="eyebrow">Free &amp; interactive</span>
       <h2>Read your own face</h2>
       <p>An interactive guide to Mien Shiang, the 2,000-year-old art of face reading. Learn the three zones, the five elements, and what each feature reveals &mdash; then let your own photos do some of the looking. No booking, no cost.</p>
-      <a href="/face-reading" class="btn-primary" style="display:inline-block;padding:14px 36px;">Begin your face reading</a>
+      <a href="/face-reading" class="btn-primary" style="display:inline-block;margin-top:8px;">Begin your face reading</a>
     </div>
   </div>
 </section>
@@ -460,11 +474,11 @@ label {
 
 <section class="optin-section">
   <div class="optin-inner fade-up">
-    <span class="optin-eyebrow">Free weekly wisdom</span>
-    <h2>The Five Element Letter</h2>
-    <p>Short weekly notes on face reading, Chinese medicine, and living in rhythm with the seasons. No noise — just the good stuff.</p>
+    <span class="optin-eyebrow">Free · at every turn of the season</span>
+    <h2>Season Change Notes</h2>
+    <p>When the season turns, Hilarey writes on what shifts with it — in the body, in the face, and in how to live well through it. Five seasons, five elements, a few times a year.</p>
     <div class="optin-form"><input type="email" placeholder="your@email.com" /><button class="btn-optin">Subscribe</button></div>
-    <p class="optin-note">No spam. Unsubscribe any time. ~1 email per week.</p>
+    <p class="optin-note">No spam. Unsubscribe any time. A handful of emails a year.</p>
   </div>
 </section>
 

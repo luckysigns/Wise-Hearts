@@ -156,10 +156,24 @@ p  { color: var(--cocoa-soft); }
 .mobile-menu {
   display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
   background: var(--cream); z-index: 99; flex-direction: column;
-  align-items: center; justify-content: center; gap: 32px;
+  align-items: stretch; justify-content: flex-start; gap: 0;
+  padding: 4px 28px calc(32px + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
 }
 .mobile-menu.open { display: flex; }
-.mobile-menu a { font-family: var(--font-display); font-size: 2rem; color: var(--cocoa-ink); }
+
+.mobile-menu a {
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cocoa-ink); text-decoration: none;
+  padding: 20px 2px; border-bottom: 1px solid var(--blush-deep);
+  transition: color 0.2s;
+}
+.mobile-menu a:hover, .mobile-menu a:active { color: var(--clay-rose); }
+.mobile-menu a.btn-primary {
+  margin-top: 28px; border-bottom: none; text-align: center;
+  padding: 16px 24px; color: var(--white);
+}
 .mobile-menu a:hover { color: var(--deep-rose); }
 
 /* --- Lotus divider (brand motif) --- */
