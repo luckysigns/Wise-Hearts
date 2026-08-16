@@ -1,0 +1,18 @@
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+node_modules/
+
+# local-only archive of old drafts (not deployed)
+archive/
+.vercel
+.env*
+
+# raw source captures — the cropped versions in assets/hilarey/ are what the site uses
+assets/hilarey photo set *.png
+assets/Screen Shot *.png
+assets/4d021435-*.png

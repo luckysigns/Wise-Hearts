@@ -450,6 +450,7 @@ label {
     <button class="shop-tab active" data-filter="all">All products</button>
     <button class="shop-tab" data-filter="earseeds">Ear Seed Kits</button>
     <button class="shop-tab" data-filter="ebooks">E-Books</button>
+    <button class="shop-tab" data-filter="readings">Face Readings</button>
   </div>
 </section>
 
@@ -461,46 +462,44 @@ label {
     <article class="product-card" data-cat="earseeds">
       <div class="product-img">
         <span class="product-badge">Bestseller</span>
-        <img src="https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=600&q=80" alt="Gold ear seed kit" loading="lazy" />
+        <img src="assets/products/vaccaria.jpg" alt="Vaccaria Ear Seeds (54–Pack) + Free Ebook" loading="lazy" width="600" height="450" />
       </div>
       <div class="product-body">
         <span class="product-type">Ear Seed Kit</span>
-        <h3>Gold Ear Seeds — Starter Kit</h3>
-        <p class="product-desc">24K gold-plated ear seeds with a guide to the key points for calm, focus, and balance. Includes tweezers and placement chart.</p>
+        <h3>Vaccaria Ear Seeds (54–Pack) + Free Ebook</h3>
+        <p class="product-desc">The classic plant-based seed used in Traditional Chinese Medicine for thousands of years. Gentle, effective stimulation for grounding, cravings, sleep, and pain. Free e-book included.</p>
         <div class="product-footer">
-          <div class="product-price">$24</div>
-          <button class="btn-add" data-name="Gold Ear Seeds — Starter Kit" data-price="24" data-img="https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=200&q=80">Add to cart</button>
+          <div class="product-price">$9.99</div>
+          <button class="btn-add" data-slug="vaccaria" data-name="Vaccaria Ear Seeds (54–Pack) + Free Ebook" data-price="9.99" data-img="assets/products/vaccaria-thumb.jpg">Add to cart</button>
         </div>
       </div>
     </article>
-
     <article class="product-card" data-cat="earseeds">
       <div class="product-img">
-        <img src="https://images.unsplash.com/photo-1607006677169-91f7c0b3d531?auto=format&fit=crop&w=600&q=80" alt="Crystal ear seed kit" loading="lazy" />
+        <img src="assets/products/swarovski.jpg" alt="Swarovski Crystal Ear Seeds (20–Pack) + Free Ebook" loading="lazy" width="600" height="450" />
       </div>
       <div class="product-body">
         <span class="product-type">Ear Seed Kit</span>
-        <h3>Swarovski Crystal Ear Seeds</h3>
-        <p class="product-desc">A little sparkle with your self-care. Crystal-topped ear seeds for those who want their wellness tools to feel beautiful too.</p>
+        <h3>Swarovski Crystal Ear Seeds (20–Pack) + Free Ebook</h3>
+        <p class="product-desc">Therapeutic ear seeds with an elegant, everyday look. Sparkling crystals set on an acupressure seed — support for stress, cravings, and sleep that blends into daily life.</p>
         <div class="product-footer">
-          <div class="product-price">$28</div>
-          <button class="btn-add" data-name="Swarovski Crystal Ear Seeds" data-price="28" data-img="https://images.unsplash.com/photo-1607006677169-91f7c0b3d531?auto=format&fit=crop&w=200&q=80">Add to cart</button>
+          <div class="product-price">$24.99</div>
+          <button class="btn-add" data-slug="swarovski" data-name="Swarovski Crystal Ear Seeds (20–Pack) + Free Ebook" data-price="24.99" data-img="assets/products/swarovski-thumb.jpg">Add to cart</button>
         </div>
       </div>
     </article>
-
     <article class="product-card" data-cat="earseeds">
       <div class="product-img">
         <span class="product-badge">Best value</span>
-        <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=600&q=80" alt="Ear seed refill pack" loading="lazy" />
+        <img src="assets/products/dualpack.jpg" alt="Dual Pack: Vaccaria + Swarovski (40–Pack) + Free Ebook" loading="lazy" width="600" height="450" />
       </div>
       <div class="product-body">
         <span class="product-type">Ear Seed Kit</span>
-        <h3>Vaccaria Seed Refill — 600 ct</h3>
-        <p class="product-desc">The traditional vaccaria seeds used in Chinese medicine. A generous refill pack for anyone who's found their rhythm with ear seeding.</p>
+        <h3>Dual Pack: Vaccaria + Swarovski (40–Pack) + Free Ebook</h3>
+        <p class="product-desc">Both kinds together — 54 Vaccaria seeds for traditional therapeutic work, 20 Swarovski crystals for discreet daily wear. Free e-book included.</p>
         <div class="product-footer">
-          <div class="product-price">$18</div>
-          <button class="btn-add" data-name="Vaccaria Seed Refill — 600 ct" data-price="18" data-img="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=200&q=80">Add to cart</button>
+          <div class="product-price">$29.99</div>
+          <button class="btn-add" data-slug="dualpack" data-name="Dual Pack: Vaccaria + Swarovski (40–Pack) + Free Ebook" data-price="29.99" data-img="assets/products/dualpack-thumb.jpg">Add to cart</button>
         </div>
       </div>
     </article>
@@ -508,48 +507,75 @@ label {
     <!-- E-books -->
     <article class="product-card" data-cat="ebooks">
       <div class="product-img">
-        <span class="product-badge digital">Digital</span>
-        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80" alt="Face reading e-book" loading="lazy" />
+        <img src="assets/products/earseedbook.jpg" alt="Ear Seeds: A Guide to Healing Through the Ear" loading="lazy" width="600" height="450" />
       </div>
       <div class="product-body">
-        <span class="product-type">E-Book · PDF</span>
-        <h3>An Introduction to Face Reading</h3>
-        <p class="product-desc">Hilarey's beginner's guide to Chinese face reading — learn to read the Five Elemental types and the basic regions of the face. 40 pages, illustrated.</p>
+        <span class="product-type">E-Book</span>
+        <h3>Ear Seeds: A Guide to Healing Through the Ear</h3>
+        <p class="product-desc">A practical guide to a time-tested practice rooted in Chinese medicine. Learn how ear seeds work, the key points for common concerns, and how to apply them safely.</p>
         <div class="product-footer">
-          <div class="product-price">$12</div>
-          <button class="btn-add" data-name="An Introduction to Face Reading (E-Book)" data-price="12" data-img="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=200&q=80">Add to cart</button>
+          <div class="product-price">$4.99</div>
+          <button class="btn-add" data-slug="earseedbook" data-name="Ear Seeds: A Guide to Healing Through the Ear" data-price="4.99" data-img="assets/products/earseedbook-thumb.jpg">Add to cart</button>
+        </div>
+      </div>
+    </article>
+    <article class="product-card" data-cat="ebooks">
+      <div class="product-img">
+        <span class="product-badge">Early bird</span>
+        <img src="assets/products/wisdomofyou.jpg" alt="The Wisdom of You — Early Bird Edition" loading="lazy" width="600" height="450" />
+      </div>
+      <div class="product-body">
+        <span class="product-type">E-Book</span>
+        <h3>The Wisdom of You — Early Bird Edition</h3>
+        <p class="product-desc">Your first step into Chinese Face Reading. Explore the Five Elements and what your features reveal. Buyers receive the fully designed edition free when it's released.</p>
+        <div class="product-footer">
+          <div class="product-price">$9.99</div>
+          <button class="btn-add" data-slug="wisdomofyou" data-name="The Wisdom of You — Early Bird Edition" data-price="9.99" data-img="assets/products/wisdomofyou-thumb.jpg">Add to cart</button>
         </div>
       </div>
     </article>
 
-    <article class="product-card" data-cat="ebooks">
+    <!-- Face reading sessions -->
+    <article class="product-card" data-cat="readings">
       <div class="product-img">
-        <span class="product-badge digital">Digital</span>
-        <img src="https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?auto=format&fit=crop&w=600&q=80" alt="Five elements e-book" loading="lazy" />
+        <img src="assets/products/mini.jpg" alt="Mini Face Reading" loading="lazy" width="600" height="450" />
       </div>
       <div class="product-body">
-        <span class="product-type">E-Book · PDF</span>
-        <h3>Living the Five Elements</h3>
-        <p class="product-desc">A seasonal guide to Wood, Fire, Earth, Metal, and Water — how each Element shows up in your health, mood, and relationships, with simple daily practices.</p>
+        <span class="product-type">30-minute session</span>
+        <h3>Mini Face Reading</h3>
+        <p class="product-desc">A quiet moment to connect with yourself. Hilarey gently guides you through the stories your face reveals, with insights that nurture self-awareness and calm clarity.</p>
         <div class="product-footer">
-          <div class="product-price">$15</div>
-          <button class="btn-add" data-name="Living the Five Elements (E-Book)" data-price="15" data-img="https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?auto=format&fit=crop&w=200&q=80">Add to cart</button>
+          <div class="product-price">$72</div>
+          <button class="btn-add" data-slug="mini" data-name="Mini Face Reading" data-price="72.00" data-img="assets/products/mini-thumb.jpg">Add to cart</button>
         </div>
       </div>
     </article>
-
-    <article class="product-card" data-cat="ebooks">
+    <article class="product-card" data-cat="readings">
       <div class="product-img">
-        <span class="product-badge digital">Digital</span>
-        <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=600&q=80" alt="Ear seed guide e-book" loading="lazy" />
+        <span class="product-badge">Most booked</span>
+        <img src="assets/products/individual.jpg" alt="Individual Face Reading" loading="lazy" width="600" height="450" />
       </div>
       <div class="product-body">
-        <span class="product-type">E-Book · PDF</span>
-        <h3>The Ear Seed Handbook</h3>
-        <p class="product-desc">A complete reference for ear seeding at home — point maps for sleep, stress, cravings, and focus, plus how long to leave seeds in and when to replace them.</p>
+        <span class="product-type">60-minute session</span>
+        <h3>Individual Face Reading</h3>
+        <p class="product-desc">A fuller exploration of your story through face reading. Gentle guidance and thoughtful insight, helping you connect with your inner wisdom in a calm, welcoming space.</p>
         <div class="product-footer">
-          <div class="product-price">$10</div>
-          <button class="btn-add" data-name="The Ear Seed Handbook (E-Book)" data-price="10" data-img="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=200&q=80">Add to cart</button>
+          <div class="product-price">$144</div>
+          <button class="btn-add" data-slug="individual" data-name="Individual Face Reading" data-price="144.00" data-img="assets/products/individual-thumb.jpg">Add to cart</button>
+        </div>
+      </div>
+    </article>
+    <article class="product-card" data-cat="readings">
+      <div class="product-img">
+        <img src="assets/products/couples.jpg" alt="Couples Face Reading" loading="lazy" width="600" height="450" />
+      </div>
+      <div class="product-body">
+        <span class="product-type">90-minute session</span>
+        <h3>Couples Face Reading</h3>
+        <p class="product-desc">A deep look at the two of you — what matches, how to be your individual best, and how to best relate to each other.</p>
+        <div class="product-footer">
+          <div class="product-price">$234</div>
+          <button class="btn-add" data-slug="couples" data-name="Couples Face Reading" data-price="234.00" data-img="assets/products/couples-thumb.jpg">Add to cart</button>
         </div>
       </div>
     </article>
@@ -561,18 +587,18 @@ label {
 <section class="bundle-section">
   <div class="bundle-inner">
     <div class="bundle-img fade-up">
-      <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80" alt="Ear seed and e-book bundle" loading="lazy" />
+      <img src="assets/products/dualpack.jpg" alt="Vaccaria and Swarovski crystal ear seeds together" loading="lazy" width="600" height="450" />
     </div>
     <div class="bundle-text fade-up">
       <span class="eyebrow">Best together</span>
-      <h2>The Beginner's Bundle</h2>
-      <p>Everything you need to start: the Gold Ear Seed Starter Kit paired with both the Ear Seed Handbook and Introduction to Face Reading e-books. A gentle, complete first step.</p>
+      <h2>The Dual Pack</h2>
+      <p>Both kinds in one order — 54 Vaccaria seeds for traditional therapeutic work, and 20 Swarovski crystals for the days you want your healing to look like jewellery. The free e-book comes with it.</p>
       <div class="bundle-price">
-        <span class="now">$36</span>
-        <span class="was">$46</span>
-        <span class="save">Save $10</span>
+        <span class="now">$29.99</span>
+        <span class="was">$34.98</span>
+        <span class="save">Save $4.99</span>
       </div>
-      <button class="btn-add btn-primary" style="padding:14px 36px;" data-name="The Beginner's Bundle" data-price="36" data-img="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=200&q=80">Add Bundle to Cart</button>
+      <button data-slug="dualpack" class="btn-add btn-primary" style="padding:14px 36px;" data-name="Dual Pack: Vaccaria + Swarovski (40&ndash;Pack) + Free Ebook" data-price="29.99" data-img="assets/products/dualpack-thumb.jpg">Add Bundle to Cart</button>
     </div>
   </div>
 </section>
@@ -651,7 +677,7 @@ label {
   </div>
   <div class="footer-bottom">
     <span>© 2025 Wise Hearts Connect · Portland, Oregon</span>
-    <span>Site by <a href="https://www.lucky-signs.net/" target="_blank">Lachlan Sforcina</a></span>
+    <span>Site by <a href="https://revisualdigital.com" target="_blank" rel="noopener">Revisual Digital</a></span>
   </div>
 </footer>
 
@@ -691,7 +717,7 @@ label {
 
   document.querySelectorAll('.btn-add').forEach(btn => {
     btn.addEventListener('click', () => {
-      cart.push({ name: btn.dataset.name, price: +btn.dataset.price, img: btn.dataset.img });
+      cart.push({ slug: btn.dataset.slug, name: btn.dataset.name, price: +btn.dataset.price, img: btn.dataset.img });
       renderCart();
       openCart();
     });
@@ -703,7 +729,7 @@ label {
       countEl.style.display = 'none';
       // clear any lines
       itemsEl.querySelectorAll('.cart-line').forEach(l => l.remove());
-      totalEl.textContent = '$0';
+      totalEl.textContent = '$0.00';
       return;
     }
     emptyEl.style.display = 'none';
@@ -719,22 +745,67 @@ label {
         <img src="${item.img}" alt="${item.name}" />
         <div class="cart-line-info">
           <strong>${item.name}</strong>
-          <span>$${item.price}</span><br>
+          <span>$${item.price.toFixed(2)}</span><br>
           <button class="cart-line-remove" data-i="${i}">Remove</button>
         </div>`;
       itemsEl.appendChild(line);
     });
-    totalEl.textContent = '$' + total;
+    totalEl.textContent = '$' + total.toFixed(2);
     itemsEl.querySelectorAll('.cart-line-remove').forEach(b => {
       b.addEventListener('click', () => { cart.splice(+b.dataset.i, 1); renderCart(); });
     });
   }
 
-  // Checkout placeholder — swap this for your real provider (see chat notes)
-  document.getElementById('cartCheckout').addEventListener('click', () => {
-    if (cart.length === 0) { alert('Your cart is empty.'); return; }
-    alert('Checkout connects here. Once a payment provider is set up (Stripe, Snipcart, or a hosted store), this button takes the customer to a secure checkout with these items.');
+  // ---- Checkout: hand the basket to /api/checkout, which prices it
+  // against Stripe and returns a hosted Checkout URL ----
+  const checkoutBtn = document.getElementById('cartCheckout');
+  const cartNote = document.querySelector('.cart-note');
+  const noteDefault = cartNote ? cartNote.textContent : '';
+
+  function note(msg, isError) {
+    if (!cartNote) return;
+    cartNote.textContent = msg;
+    cartNote.style.color = isError ? '#b3261e' : '';
+  }
+
+  checkoutBtn.addEventListener('click', async () => {
+    if (cart.length === 0) { note('Your cart is empty.', true); return; }
+
+    // collapse to slug + quantity; the server decides the price
+    const counts = {};
+    cart.forEach(i => { counts[i.slug] = (counts[i.slug] || 0) + 1; });
+    const items = Object.entries(counts).map(([slug, qty]) => ({ slug, qty }));
+
+    checkoutBtn.disabled = true;
+    const label = checkoutBtn.textContent;
+    checkoutBtn.textContent = 'Taking you to checkout…';
+    note(noteDefault, false);
+
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items })
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) throw new Error(data.error || 'Checkout unavailable');
+      window.location.href = data.url;
+    } catch (err) {
+      checkoutBtn.disabled = false;
+      checkoutBtn.textContent = label;
+      note(err.message, true);
+    }
   });
+
+  // returning from Stripe
+  const params = new URLSearchParams(location.search);
+  if (params.get('paid') === '1') {
+    note('Thank you — your order is confirmed. Check your email for your receipt' +
+         (' and any e-book that came with it.'), false);
+    openCart();
+  } else if (params.get('canceled') === '1') {
+    note('Checkout cancelled — your cart is still here whenever you are.', false);
+  }
 </script>
 </body>
 </html>

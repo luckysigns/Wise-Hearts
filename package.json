@@ -1,0 +1,8 @@
+{
+  "name": "wise-hearts-connect",
+  "private": true,
+  "dependencies": {
+    "nodemailer": "^9.0.5",
+    "stripe": "^17.7.0"
+  }
+}
