@@ -278,7 +278,7 @@
   <p>New content every week — face reading tutorials, Five Element theory, acupuncture education, and Hilarey's personal stories from 20 years of practice.</p>
   <div class="yt-sub-badge">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.55 3.5 12 3.5 12 3.5s-7.55 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.03 0 12 0 12s0 3.97.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.45 20.5 12 20.5 12 20.5s7.55 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.97 24 12 24 12s0-3.97-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
-    <span><strong>@WiseHeartsConnect</strong> · 1,300+ subscribers</span>
+    <span><strong>@WiseHeartsConnect</strong> · <span id="ytStats">1,400+ subscribers</span></span>
   </div>
 </section>
 
@@ -531,6 +531,28 @@
       });
     });
   });
+</script>
+<script>
+  // Live channel stats. /api/youtube is cached at the edge for 6 hours, so this
+  // is one cheap request. If it fails for any reason the badge keeps the number
+  // the page shipped with, which is why that number is kept roughly current too.
+  (async () => {
+    const el = document.getElementById('ytStats');
+    if (!el) return;
+    try {
+      const r = await fetch('/api/youtube', { headers: { Accept: 'application/json' } });
+      const d = await r.json();
+      if (!d || !d.ok || !Number.isFinite(d.subscribers)) return;
+      const n = d.subscribers.toLocaleString('en-US');
+      const parts = [n + ' subscriber' + (d.subscribers === 1 ? '' : 's')];
+      if (Number.isFinite(d.videos) && d.videos > 0) {
+        parts.push(d.videos.toLocaleString('en-US') + ' videos');
+      }
+      el.textContent = parts.join(' \u00b7 ');
+    } catch (e) {
+      /* offline, blocked, or the key is not set yet: leave the fallback alone */
+    }
+  })();
 </script>
 </body>
 </html>

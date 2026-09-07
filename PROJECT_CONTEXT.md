@@ -91,7 +91,18 @@ the `.html` forms, so linking to `.html` would cost a redirect on every click.
   `services/`). Nothing is hotlinked except the Pexels hero video on the home page and
   the YouTube embeds.
 - Watch page lists the 20 most watched long-form videos with a working topic filter.
-  Home page features three real videos. No placeholder IDs remain.
+  Home page features three real videos, equal thirds. No placeholder IDs remain.
+- **Live subscriber count.** The Watch page badge fetches `/api/youtube`, which calls the
+  YouTube Data API and is cached at Vercel's edge for 6 hours. The number in the HTML
+  (`#ytStats`) is the fallback shown to crawlers and whenever the call fails, so keep it
+  roughly current. Channel id `UC9EZs-J9cPYn0ZTBkdCBK9A`.
+  Setup: console.cloud.google.com -> new or existing project -> APIs & Services ->
+  enable "YouTube Data API v3" -> Credentials -> Create credentials -> API key ->
+  restrict it to that one API -> add it to Vercel as `YOUTUBE_API_KEY` (all environments)
+  and redeploy. Optional `YOUTUBE_CHANNEL_ID` overrides the default. Free tier is 10,000
+  units a day and this costs 1 unit per cache miss, so roughly 4 a day.
+  Until the key is set the endpoint returns `{ok:false}` and the badge just keeps the
+  static number, so nothing breaks in the meantime.
 
 ## SEO (done Sep 2026, on the current pages)
 
@@ -120,9 +131,11 @@ the `.html` forms, so linking to `.html` would cost a redirect on every click.
    SMTP setup the Stripe webhook already uses, and make the form wait for a 200.
 2. **Newsletter opt-in is a dead input** (home page "Season Change Notes" box has no
    handler). Needs a list provider or a small `/api/subscribe`.
-3. Hilarey's portrait: `assets/hilarey.jpg` is what ships. Lachlan flagged the earlier
+3. **`YOUTUBE_API_KEY` is not set in Vercel yet**, so the Watch badge is still showing
+   its static fallback. See the setup steps above.
+4. Hilarey's portrait: `assets/hilarey.jpg` is what ships. Lachlan flagged the earlier
    photo as not the preferred one; confirm this is the image she wants.
-4. Pexels hero video on the home page is a hotlinked 1280x720 MP4. Fine for now; a
+5. Pexels hero video on the home page is a hotlinked 1280x720 MP4. Fine for now; a
    locally hosted, compressed clip (or a poster image on mobile) would help LCP.
 
 ## Working preferences
