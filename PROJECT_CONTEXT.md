@@ -93,8 +93,12 @@ the `.html` forms, so linking to `.html` would cost a redirect on every click.
 - Watch page lists the 20 most watched long-form videos with a working topic filter.
   Home page features three real videos, equal thirds. No placeholder IDs remain.
 - **Watch page is data-driven.** `/api/youtube-videos` returns the channel's whole
-  long-form library (88 videos as of Sep 2026) from the YouTube Data API, filtering out
-  Shorts by duration and guessing a category from the title. The page ships with the 20
+  long-form library (90 videos as of Sep 2026) from the YouTube Data API and guesses a
+  category from the title. **Shorts never appear on the site.** Duration alone cannot
+  decide that: a Short is capped at 3 minutes but two real videos are 2:43 and 2:52, so
+  anything at or under 60s is dropped outright, anything over 3 minutes is kept, and the
+  band between is checked against `youtube.com/shorts/<id>`, which answers 200 for a real
+  Short and redirects for a normal video. The page ships with the 20
   hand-written cards baked into `media.html` as `CURATED`, which is what crawlers and a
   keyless deploy see; when the API answers, curated entries keep their tag and blurb and
   the rest are appended. 12 cards render at a time behind a Load more button.

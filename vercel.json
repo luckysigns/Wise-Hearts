@@ -6,6 +6,9 @@
   "functions": {
     "api/stripe-webhook.js": {
       "includeFiles": "api/_ebooks/**"
+    },
+    "api/youtube-videos.js": {
+      "maxDuration": 60
     }
   },
   "headers": [

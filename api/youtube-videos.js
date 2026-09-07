@@ -8,9 +8,23 @@
    Returns: { ok, count, videos: [{ id, title, duration, seconds,
               views, published, cat }] }, newest first.
 
-   Shorts are excluded. YouTube caps a Short at 3 minutes, so
-   anything longer is definitionally not one; MIN_SECONDS is the
-   knob if that ever changes.
+   Shorts are excluded, and that is the fiddly part. Duration
+   alone does not decide it: a Short is capped at 3 minutes, but
+   plenty of real videos are shorter than that (two of Hilarey's
+   are 2:43 and 2:52). So the check is three-way, and only the
+   genuinely ambiguous middle costs a request:
+
+     <= SHORT_MAX (60s)   almost certainly a Short   -> drop
+     >  SHORTS_CEILING    longer than a Short can be -> keep
+     in between           ask YouTube                -> /shorts/<id>
+                                                        answers 200 for
+                                                        a Short, redirects
+                                                        for a real video
+
+   A probe that errors keeps the video, so a network blip cannot
+   blank the page. Anything past MAX_PROBES is dropped instead:
+   at that point we deliberately did not look, and that band is
+   overwhelmingly Shorts.
 
    Categories are guessed from the title (see CATEGORY_RULES).
    The Watch page overrides the guess for the videos it has a
@@ -29,10 +43,13 @@
    ============================================================ */
 
 const CHANNEL_ID = process.env.YOUTUBE_CHANNEL_ID || "UC9EZs-J9cPYn0ZTBkdCBK9A";
-const MIN_SECONDS = 181;      // longer than the 3:00 Shorts ceiling
+const SHORT_MAX = 60;         // at or under this, treat as a Short without asking
+const SHORTS_CEILING = 180;   // YouTube will not let a Short run longer than this
 const TTL_SECONDS = 21600;    // 6 hours at the edge
 const MAX_PAGES = 20;         // 1000 uploads, well past what we have
-const TIMEOUT_MS = 8000;
+const MAX_PROBES = 200;       // cap the /shorts/ checks so a cold call cannot run away
+const PROBE_BATCH = 20;       // how many of those to run at once
+const TIMEOUT_MS = 20000;
 
 /* Title keyword -> category. First match wins, so the most specific
    patterns come first. Mirrors the tab filters on the Watch page. */
@@ -119,8 +136,33 @@ module.exports = async function handler(req, res) {
       }
     }
 
+    // Only videos in the ambiguous band need asking about.
+    const maybeShort = items.filter(v =>
+      (v.seconds || 0) > SHORT_MAX && (v.seconds || 0) <= SHORTS_CEILING);
+    const isShort = new Map();
+    for (let i = 0; i < Math.min(maybeShort.length, MAX_PROBES); i += PROBE_BATCH) {
+      const batch = maybeShort.slice(i, i + PROBE_BATCH);
+      await Promise.all(batch.map(async v => {
+        try {
+          const r = await fetch(`https://www.youtube.com/shorts/${v.id}`,
+            { method: "HEAD", redirect: "manual", signal: ac.signal });
+          // 200 means the Shorts player served it; a real video redirects to /watch
+          isShort.set(v.id, r.status === 200);
+        } catch {
+          isShort.set(v.id, false);   // could not tell: keep the video
+        }
+      }));
+    }
+
     const videos = items
-      .filter(v => (v.seconds || 0) >= MIN_SECONDS)
+      .filter(v => {
+        const secs = v.seconds || 0;
+        if (secs <= SHORT_MAX) return false;          // Short, no question
+        if (secs > SHORTS_CEILING) return true;       // too long to be a Short
+        const verdict = isShort.get(v.id);
+        if (verdict === undefined) return false;      // never checked (past the cap)
+        return !verdict;
+      })
       .map(v => ({
         id: v.id,
         title: v.title,
@@ -135,6 +177,7 @@ module.exports = async function handler(req, res) {
       `public, s-maxage=${TTL_SECONDS}, stale-while-revalidate=${TTL_SECONDS * 4}`);
     return res.status(200).json({
       ok: true, count: videos.length, totalUploads: items.length,
+      probed: Math.min(maybeShort.length, MAX_PROBES),
       videos, fetchedAt: new Date().toISOString()
     });
   } catch (err) {
@@ -149,4 +192,4 @@ module.exports = async function handler(req, res) {
   }
 };
 
-module.exports._test = { isoToSeconds, secondsToClock, categorize };
+module.exports._test = { isoToSeconds, secondsToClock, categorize, SHORT_MAX, SHORTS_CEILING };
