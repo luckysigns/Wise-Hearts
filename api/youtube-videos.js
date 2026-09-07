@@ -1,76 +1,104 @@
 /* ============================================================
    GET /api/youtube-videos
 
-   The channel's full long-form library for the Watch page, so
-   the video grid keeps itself current as Hilarey posts instead
-   of being a hand-maintained list of embeds.
+   The channel's long-form library for the Watch page, so the
+   grid keeps itself current as Hilarey posts instead of being a
+   hand-maintained list of embeds.
 
    Returns: { ok, count, videos: [{ id, title, duration, seconds,
               views, published, cat }] }, newest first.
 
-   Shorts are excluded, and that is the fiddly part. Duration
-   alone does not decide it: a Short is capped at 3 minutes, but
-   plenty of real videos are shorter than that (two of Hilarey's
-   are 2:43 and 2:52). So the check is three-way, and only the
-   genuinely ambiguous middle costs a request:
+   --- Shorts ---
+   Every one of the 387 Shorts on this channel is vertical and no
+   longer than 3:00; all 88 real videos are landscape and the
+   shortest is 2:06. So orientation decides it and duration never
+   could: seven real videos are under three minutes, and an
+   earlier duration rule silently ate them.
 
-     <= SHORT_MAX (60s)   almost certainly a Short   -> drop
-     >  SHORTS_CEILING    longer than a Short can be -> keep
-     in between           ask YouTube                -> /shorts/<id>
-                                                        answers 200 for
-                                                        a Short, redirects
-                                                        for a real video
+   Orientation comes from videos.list part=player with maxHeight
+   set, which makes the API report embedWidth/embedHeight at the
+   video's real aspect ratio. If that is ever missing we ask
+   youtube.com/shorts/<id>, which answers 200 for a Short and
+   redirects for anything else.
 
-   A probe that errors keeps the video, so a network blip cannot
-   blank the page. Anything past MAX_PROBES is dropped instead:
-   at that point we deliberately did not look, and that band is
-   overwhelmingly Shorts.
+   --- Categories ---
+   "Interviews" is exactly the Wise Heart Podcast playlist, not a
+   title guess. The rest are scored against title, tags and
+   description, with the title weighted heaviest. Five Elements
+   deliberately covers both the element videos and the meridian
+   and organ-clock ones.
 
-   Categories are guessed from the title (see CATEGORY_RULES).
-   The Watch page overrides the guess for the videos it has a
-   hand-written tag and blurb for, so curation always wins.
+   Note the scorer never matches a bare organ name: "heart" is in
+   the channel's own name and appears in nearly every description.
 
    Env vars:
-     YOUTUBE_API_KEY     required, same key as /api/youtube
-     YOUTUBE_CHANNEL_ID  optional, defaults to the Wise Hearts channel
+     YOUTUBE_API_KEY      required, same key as /api/youtube
+     YOUTUBE_CHANNEL_ID   optional, defaults to the Wise Hearts channel
+     YOUTUBE_PODCAST_LIST optional, the podcast playlist id
 
-   Quota: the channel has ~450 uploads, so a cold response costs
-   about 18 of the 10,000 free daily units. The 6 hour edge cache
-   means roughly 4 cold responses a day.
-
-   Like /api/youtube, every failure returns 200 with ok:false so
-   the page falls back to its built-in list instead of breaking.
+   Quota: about 85 of the 10,000 free daily units per cold call,
+   and the 6 hour edge cache means roughly 4 of those a day.
    ============================================================ */
 
 const CHANNEL_ID = process.env.YOUTUBE_CHANNEL_ID || "UC9EZs-J9cPYn0ZTBkdCBK9A";
-const SHORT_MAX = 60;         // at or under this, treat as a Short without asking
-const SHORTS_CEILING = 180;   // YouTube will not let a Short run longer than this
-const TTL_SECONDS = 21600;    // 6 hours at the edge
-const MAX_PAGES = 20;         // 1000 uploads, well past what we have
-const MAX_PROBES = 200;       // cap the /shorts/ checks so a cold call cannot run away
-const PROBE_BATCH = 20;       // how many of those to run at once
-const TIMEOUT_MS = 20000;
+const PODCAST_LIST = process.env.YOUTUBE_PODCAST_LIST || "PLVSwh0el1qmQFBKI0sMJ93tf71NZlIHCP";
+const TTL_SECONDS = 21600;
+const MAX_PAGES = 20;
+const PROBE_BATCH = 20;
+const TIMEOUT_MS = 25000;
 
-/* Title keyword -> category. First match wins, so the most specific
-   patterns come first. Mirrors the tab filters on the Watch page. */
-const CATEGORY_RULES = [
-  ["interviews",   /\b(with|w\/|interview|conversation|guest|feat\.?|ft\.?|remembering)\b/i],
-  ["fiveelements", /\b(five element|5 element|wood|fire|earth element|metal element|water element|elemental)\b/i],
-  ["facereading",  /\b(face|facial|mian|forehead|eyebrow|eyes|nose|lips|chin|cheek|jaw|ears?|wrinkle|lines|mole|features?)\b/i],
-  ["acupuncture",  /\b(acupuncture|needle|meridian|herb|point|treatment|clinic|patient|pain|sleep|body|health|medicine|ozempic|skin)\b/i],
-  ["taoist",       /\b(tao|dao|spirit|wisdom|shen|qi|energy|soul|purpose|meaning|philosoph|intuition|nature|season)\b/i]
+const ORGAN = "(small intestine|large intestine|gall ?bladder|triple (?:burner|heater)|" +
+              "pericardium|spleen|liver|kidney|lung|stomach|bladder|heart)";
+
+const RULES = [
+  ["fiveelements", [
+    [/\b(wood|fire|earth|metal|water)\s+(element|type|person|people|season|energy)/i, 6],
+    [/\bfive\s*element|\b5\s*element|\belemental\b|\bthe\s+element\b|\belement\s+(of|in|type)/i, 6],
+    [new RegExp(`\\b${ORGAN}('?s)?\\s+(meridian|channel|qi|energy|organ|system|time|clock|hour)`, "i"), 6],
+    [/\bmeridian|\b(organ|body|chinese)\s+clock|\bacupuncture channel|\bhour by hour/i, 6],
+    [/\b(spring|summer|autumn|winter|late summer)\b[^.]{0,40}\b(season|element|energy|qi)\b/i, 3]
+  ]],
+  ["facereading", [
+    [/\bface reading|\bmian ?xiang|\bread(ing)? (a |your |the )?face|\bfacial\b|\bface map/i, 7],
+    [/\b(forehead|eyebrow|eyelid|nose|lips?|chin|cheek|jaw|dimple|mole|philtrum|hairline|temples?)\b/i, 4],
+    [/\b(11 lines|wrinkles?|features?)\b/i, 3],
+    [/\byour face\b|\bthe face\b|\bfaces\b/i, 4]
+  ]],
+  ["acupuncture", [
+    [/\bacupunctur|\bacupressure|\bacupoint|\bneedl|\bcupping|\bmoxa|\bear seed|\bacutonic|\btuning fork|\bgua sha|\bpressure points?/i, 7],
+    [/\btreatment\b|\bclinic\b|\bpatient\b|\bherb|\bqi ?gong|\bdiagnos/i, 4],
+    [/\b(pain|insomnia|digestion|fertility|menopause|immune|inflammation|ozempic)\b/i, 3]
+  ]],
+  ["taoist", [
+    [/\btao\b|\btaoist|\bdao\b|\bdaoist|\bwu wei|\bshen\b|\bspirit(ual)?\b|\bsoul\b|\bconscious|\bphilosoph|\bpurpose\b|\bintuition|\bwisdom\b|\bdestiny|\bbazi|\bastrolog|\bmeditat|\bafterlife|\bayahuasca|\bhospice|\bming\b/i, 6],
+    [/\b(meaning|gratitude|surrender|presence|mindset|self-?love|inner)\b/i, 2]
+  ]]
 ];
 
-function categorize(title) {
-  for (const [cat, re] of CATEGORY_RULES) if (re.test(title)) return cat;
-  return "taoist";
+// curly quotes would break \b...'s patterns, so flatten them first
+const norm = s => String(s || "").replace(/[‘’ʼ]/g, "'").replace(/[“”]/g, '"');
+
+function categorize(title, description, tags) {
+  const t = norm(title);
+  const k = norm(Array.isArray(tags) ? tags.join(" ") : tags);
+  const d = norm(description).slice(0, 400);
+  let best = "taoist", bestScore = 0;
+  for (const [cat, patterns] of RULES) {
+    let score = 0;
+    for (const [re, weight] of patterns) {
+      if (re.test(t)) score += weight * 3;   // the title says the most
+      if (re.test(k)) score += weight * 2;
+      if (re.test(d)) score += weight;
+    }
+    if (score > bestScore) { bestScore = score; best = cat; }
+  }
+  return best;
 }
 
-/* PT1H2M3S -> 3723 */
 function isoToSeconds(iso) {
-  const m = /^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/.exec(iso || "");
+  const m = /^P(?:(\d+)D)?T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/.exec(iso || "");
   if (!m) return 0;
-  return (+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0);
+  return (+m[1] || 0) * 86400 + (+m[2] || 0) * 3600 + (+m[3] || 0) * 60 + (+m[4] || 0);
 }
 
 function secondsToClock(s) {
@@ -87,6 +115,24 @@ async function api(path, params, signal) {
   return body;
 }
 
+async function allPlaylistItems(playlistId, signal) {
+  const out = [];
+  let pageToken = "";
+  for (let page = 0; page < MAX_PAGES; page++) {
+    const d = await api("playlistItems", {
+      part: "contentDetails", playlistId, maxResults: "50",
+      ...(pageToken ? { pageToken } : {})
+    }, signal);
+    for (const it of d.items || []) {
+      const id = it.contentDetails?.videoId;
+      if (id) out.push({ id, published: it.contentDetails?.videoPublishedAt || null });
+    }
+    pageToken = d.nextPageToken || "";
+    if (!pageToken) break;
+  }
+  return out;
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== "GET" && req.method !== "HEAD") {
     res.setHeader("Allow", "GET");
@@ -100,84 +146,68 @@ module.exports = async function handler(req, res) {
   const ac = new AbortController();
   const timer = setTimeout(() => ac.abort(), TIMEOUT_MS);
   try {
-    // The uploads playlist of any channel is its id with UC swapped for UU.
     const uploads = "UU" + CHANNEL_ID.slice(2);
-
-    const items = [];
-    let pageToken = "";
-    for (let page = 0; page < MAX_PAGES; page++) {
-      const d = await api("playlistItems", {
-        part: "snippet,contentDetails", playlistId: uploads,
-        maxResults: "50", ...(pageToken ? { pageToken } : {})
-      }, ac.signal);
-      for (const it of d.items || []) {
-        const id = it.contentDetails?.videoId;
-        if (!id) continue;
-        items.push({
-          id,
-          title: it.snippet?.title || "",
-          published: it.contentDetails?.videoPublishedAt || it.snippet?.publishedAt || null
-        });
-      }
-      pageToken = d.nextPageToken || "";
-      if (!pageToken) break;
-    }
-
-    // Durations and view counts come from videos.list, 50 ids at a time.
+    const items = await allPlaylistItems(uploads, ac.signal);
     const byId = new Map(items.map(v => [v.id, v]));
+
+    // podcast episodes decide the Interviews tag; a failure here just
+    // means nothing gets that tag, which is better than a wrong guess
+    let podcast = new Set();
+    try {
+      podcast = new Set((await allPlaylistItems(PODCAST_LIST, ac.signal)).map(v => v.id));
+    } catch { /* leave it empty */ }
+
+    // maxHeight makes the API report the real aspect ratio in embedWidth/embedHeight
     for (let i = 0; i < items.length; i += 50) {
       const chunk = items.slice(i, i + 50).map(v => v.id).join(",");
-      const d = await api("videos", { part: "contentDetails,statistics", id: chunk }, ac.signal);
+      const d = await api("videos", {
+        part: "contentDetails,statistics,snippet,player",
+        id: chunk, maxHeight: "720"
+      }, ac.signal);
       for (const v of d.items || []) {
         const rec = byId.get(v.id);
         if (!rec) continue;
         rec.seconds = isoToSeconds(v.contentDetails?.duration);
         rec.views = Number(v.statistics?.viewCount) || 0;
+        rec.title = v.snippet?.title || "";
+        rec.description = v.snippet?.description || "";
+        rec.tags = v.snippet?.tags || [];
+        const w = Number(v.player?.embedWidth), h = Number(v.player?.embedHeight);
+        rec.vertical = (w > 0 && h > 0) ? h > w : null;   // null = could not tell
       }
     }
 
-    // Only videos in the ambiguous band need asking about.
-    const maybeShort = items.filter(v =>
-      (v.seconds || 0) > SHORT_MAX && (v.seconds || 0) <= SHORTS_CEILING);
-    const isShort = new Map();
-    for (let i = 0; i < Math.min(maybeShort.length, MAX_PROBES); i += PROBE_BATCH) {
-      const batch = maybeShort.slice(i, i + PROBE_BATCH);
-      await Promise.all(batch.map(async v => {
+    // fall back to asking YouTube for anything the player part did not describe
+    const unknown = items.filter(v => v.vertical === null || v.vertical === undefined);
+    for (let i = 0; i < unknown.length; i += PROBE_BATCH) {
+      await Promise.all(unknown.slice(i, i + PROBE_BATCH).map(async v => {
         try {
           const r = await fetch(`https://www.youtube.com/shorts/${v.id}`,
             { method: "HEAD", redirect: "manual", signal: ac.signal });
-          // 200 means the Shorts player served it; a real video redirects to /watch
-          isShort.set(v.id, r.status === 200);
+          v.vertical = r.status === 200;          // 200 = the Shorts player served it
         } catch {
-          isShort.set(v.id, false);   // could not tell: keep the video
+          v.vertical = (v.seconds || 0) <= 180;   // last resort: the old duration guess
         }
       }));
     }
 
     const videos = items
-      .filter(v => {
-        const secs = v.seconds || 0;
-        if (secs <= SHORT_MAX) return false;          // Short, no question
-        if (secs > SHORTS_CEILING) return true;       // too long to be a Short
-        const verdict = isShort.get(v.id);
-        if (verdict === undefined) return false;      // never checked (past the cap)
-        return !verdict;
-      })
+      .filter(v => v.vertical === false && v.title)
       .map(v => ({
         id: v.id,
         title: v.title,
-        duration: secondsToClock(v.seconds),
-        seconds: v.seconds,
+        duration: secondsToClock(v.seconds || 0),
+        seconds: v.seconds || 0,
         views: v.views || 0,
         published: v.published,
-        cat: categorize(v.title)
+        cat: podcast.has(v.id) ? "interviews" : categorize(v.title, v.description, v.tags)
       }));
 
     res.setHeader("Cache-Control",
       `public, s-maxage=${TTL_SECONDS}, stale-while-revalidate=${TTL_SECONDS * 4}`);
     return res.status(200).json({
       ok: true, count: videos.length, totalUploads: items.length,
-      probed: Math.min(maybeShort.length, MAX_PROBES),
+      shortsExcluded: items.length - videos.length, probed: unknown.length,
       videos, fetchedAt: new Date().toISOString()
     });
   } catch (err) {
@@ -192,4 +222,4 @@ module.exports = async function handler(req, res) {
   }
 };
 
-module.exports._test = { isoToSeconds, secondsToClock, categorize, SHORT_MAX, SHORTS_CEILING };
+module.exports._test = { isoToSeconds, secondsToClock, categorize, norm };
