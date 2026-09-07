@@ -92,11 +92,20 @@ the `.html` forms, so linking to `.html` would cost a redirect on every click.
   the YouTube embeds.
 - Watch page lists the 20 most watched long-form videos with a working topic filter.
   Home page features three real videos, equal thirds. No placeholder IDs remain.
+- **Watch page is data-driven.** `/api/youtube-videos` returns the channel's whole
+  long-form library (88 videos as of Sep 2026) from the YouTube Data API, filtering out
+  Shorts by duration and guessing a category from the title. The page ships with the 20
+  hand-written cards baked into `media.html` as `CURATED`, which is what crawlers and a
+  keyless deploy see; when the API answers, curated entries keep their tag and blurb and
+  the rest are appended. 12 cards render at a time behind a Load more button.
+  Cards are click-to-play posters, not iframes: an embedded YouTube player costs about a
+  megabyte of script, so 88 live iframes would never load. The iframe is built on click.
+  To re-curate, edit the `CURATED` array near the bottom of `media.html`.
 - **Live subscriber count.** The Watch page badge fetches `/api/youtube`, which calls the
   YouTube Data API and is cached at Vercel's edge for 6 hours. The number in the HTML
   (`#ytStats`) is the fallback shown to crawlers and whenever the call fails, so keep it
   roughly current. Channel id `UC9EZs-J9cPYn0ZTBkdCBK9A`.
-  Setup: console.cloud.google.com -> new or existing project -> APIs & Services ->
+  Both YouTube endpoints share one key. Setup: console.cloud.google.com -> new or existing project -> APIs & Services ->
   enable "YouTube Data API v3" -> Credentials -> Create credentials -> API key ->
   restrict it to that one API -> add it to Vercel as `YOUTUBE_API_KEY` (all environments)
   and redeploy. Optional `YOUTUBE_CHANNEL_ID` overrides the default. Free tier is 10,000
@@ -131,8 +140,9 @@ the `.html` forms, so linking to `.html` would cost a redirect on every click.
    SMTP setup the Stripe webhook already uses, and make the form wait for a 200.
 2. **Newsletter opt-in is a dead input** (home page "Season Change Notes" box has no
    handler). Needs a list provider or a small `/api/subscribe`.
-3. **`YOUTUBE_API_KEY` is not set in Vercel yet**, so the Watch badge is still showing
-   its static fallback. See the setup steps above.
+3. **`YOUTUBE_API_KEY` is not set in Vercel yet**, so the Watch page still shows the 20
+   curated videos and the static subscriber number. Setting it turns on the full 88 video
+   library and the live count. See the setup steps above.
 4. Hilarey's portrait: `assets/hilarey.jpg` is what ships. Lachlan flagged the earlier
    photo as not the preferred one; confirm this is the image she wants.
 5. Pexels hero video on the home page is a hotlinked 1280x720 MP4. Fine for now; a

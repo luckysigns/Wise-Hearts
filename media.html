@@ -184,6 +184,46 @@
       height: 100%;
       border: none;
     }
+    /* Click-to-play poster. A real YouTube iframe pulls about a megabyte of
+       player script, so 88 of them would never load. The thumbnail is 16KB
+       and the iframe is only created when someone actually presses play. */
+    .vm-embed.is-poster { cursor: pointer; }
+    .vm-embed img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; border: none; display: block;
+    }
+    .vm-play {
+      position: absolute; inset: 0; margin: auto;
+      width: 62px; height: 44px; border-radius: 10px; border: none;
+      background: rgba(24,18,16,0.72); cursor: pointer; padding: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .vm-play svg { width: 24px; height: 24px; fill: #fff; margin-left: 2px; }
+    .vm-embed:hover .vm-play { background: #FF0000; transform: scale(1.06); }
+    .vm-embed:focus-visible { outline: 2px solid var(--moss); outline-offset: 3px; }
+    .vm-duration {
+      position: absolute; right: 8px; bottom: 8px; z-index: 2;
+      background: rgba(24,18,16,0.82); color: #fff;
+      font-size: 0.72rem; letter-spacing: 0.02em;
+      padding: 2px 6px; border-radius: 3px; font-variant-numeric: tabular-nums;
+    }
+    .vm-meta {
+      font-size: 0.78rem; color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .vm-empty { text-align: center; color: var(--muted); padding: 40px 0; }
+    .vm-more-wrap { text-align: center; margin-top: 56px; }
+    .vm-more {
+      padding: 14px 38px; font-family: var(--font-body); font-size: 0.82rem;
+      font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1.5px solid var(--stone-light); border-radius: 2px;
+      background: none; color: var(--ink); cursor: pointer; transition: all 0.2s;
+    }
+    .vm-more:hover { border-color: var(--moss); color: var(--moss); background: var(--parchment-dark); }
+    .vm-count { margin-top: 14px; font-size: 0.8rem; color: var(--muted); }
+    @media (max-width: 900px) { .video-masonry { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .video-masonry { grid-template-columns: 1fr; } }
     .vm-tag {
       font-size: 0.72rem;
       letter-spacing: 0.12em;
@@ -300,7 +340,7 @@
 <!-- CATEGORIES -->
 <section class="categories-section">
   <div class="categories-inner">
-    <h3>Most watched &middot; browse by topic</h3>
+    <h3>Every video &middot; browse by topic</h3>
     <div class="category-tabs">
         <button class="category-tab active" data-filter="all">All videos</button>
         <button class="category-tab" data-filter="facereading">Face Reading</button>
@@ -315,169 +355,14 @@
 <!-- VIDEO GRID -->
 <section class="videos-section">
   <div class="videos-inner">
-    <div class="video-masonry">
-      <div class="vm-card fade-up" data-cat="interviews">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/YbeLgKXxafw" title="2026 Fire Horse Year Forecast" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Interviews</span>
-        <div class="vm-title">2026 Fire Horse Year Forecast</div>
-        <div class="vm-desc">BaZi astrology with Paul Arellano — practical guidance and intentions for the year ahead.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="taoist">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/03I_kVdyv0U" title="How to Unlock Free Energy" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Taoist Wisdom</span>
-        <div class="vm-title">How to Unlock &ldquo;Free Energy&rdquo;</div>
-        <div class="vm-desc">Qi, Shen and nervous system regulation — where your energy actually goes.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="facereading">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/9BlVz_7OYLc" title="Mewing, Looksmaxxing  The Hidden Meaning of Your Face" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Face Reading</span>
-        <div class="vm-title">Mewing, Looksmaxxing &amp; The Hidden Meaning of Your Face</div>
-        <div class="vm-desc">What the internet's face-fixing trends miss about why a face looks the way it does.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="interviews">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/3W1Ttu8c7IM" title="How to Trust Your Intuition" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Interviews</span>
-        <div class="vm-title">How to Trust Your Intuition</div>
-        <div class="vm-desc">A conversation with Zoe Graman on hearing yourself clearly.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="taoist">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/rlnmifX_U7A" title="AI, Jobs  the Future of Humanity" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Taoist Wisdom</span>
-        <div class="vm-title">AI, Jobs &amp; the Future of Humanity</div>
-        <div class="vm-desc">What's really coming — with Paul Brown.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="facereading">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/qUi3kItQIfs" title="You Judge Faces in Seconds" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Face Reading</span>
-        <div class="vm-title">You Judge Faces in Seconds</div>
-        <div class="vm-desc">Here's what you're actually seeing when you form that first impression.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="facereading">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/ufzvjPuvhGM" title="Your Face Is Your Resume" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Face Reading</span>
-        <div class="vm-title">Your Face Is Your Resume</div>
-        <div class="vm-desc">Face reading for hiring and job searching — what an interviewer reads before you speak.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="facereading">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/31Q9qoN4M-M" title="Your Face Reveals Your Love Life" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Face Reading</span>
-        <div class="vm-title">Your Face Reveals Your Love Life</div>
-        <div class="vm-desc">The features that speak to how you attach, choose, and relate.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="acupuncture">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/IeGXDjBqw6g" title="Why We Feel Stuck" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Acupuncture</span>
-        <div class="vm-title">Why We Feel Stuck</div>
-        <div class="vm-desc">The Small Intestine meridian, explained simply.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="facereading">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/ja3IYXH2nuU" title="Read Your Face, Understand Yourself" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Face Reading</span>
-        <div class="vm-title">Read Your Face, Understand Yourself</div>
-        <div class="vm-desc">What the practice is, and what your features are saying about you.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="taoist">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/SjSwMB22dD0" title="The Easiest Way to Know What's Right for You" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Taoist Wisdom</span>
-        <div class="vm-title">The Easiest Way to Know What's Right for You</div>
-        <div class="vm-desc">On hearing the signal underneath the noise when a decision won't settle.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="taoist">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/nEup_tTyeTw" title="How to Be More Spiritual (You Just Forgot)" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Taoist Wisdom</span>
-        <div class="vm-title">How to Be More Spiritual (You Just Forgot)</div>
-        <div class="vm-desc">Less a practice to take up than something to remember.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="facereading">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/iKVBy7tIzEQ" title="Why You Attract the Same People Over and Over" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Face Reading</span>
-        <div class="vm-title">Why You Attract the Same People Over and Over</div>
-        <div class="vm-desc">A face reading perspective on the patterns that keep repeating.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="acupuncture">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/kdzka5FjmGU" title="Befriending Your Body" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Acupuncture</span>
-        <div class="vm-title">Befriending Your Body</div>
-        <div class="vm-desc">Nervous system regulation through Daoist medicine.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="interviews">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/Kfeo9QgbtS8" title="The Golden Path: Remembering Lillian Bridges" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Interviews</span>
-        <div class="vm-title">The Golden Path: Remembering Lillian Bridges</div>
-        <div class="vm-desc">With Deirdre Courtney and Kelly Harrington, on the teacher behind this lineage.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="taoist">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/w28IdK5dRlE" title="What Is the Point of Being Human?" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Taoist Wisdom</span>
-        <div class="vm-title">What Is the Point of Being Human?</div>
-        <div class="vm-desc">Daoism, face reading and purpose — a longer sit-down with the biggest question.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="acupuncture">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/fDGud3xRn7g" title="What Your Skin Is Communicating Emotionally" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Acupuncture</span>
-        <div class="vm-title">What Your Skin Is Communicating Emotionally</div>
-        <div class="vm-desc">A Chinese medicine perspective on what shows up on the surface.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="fiveelements">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/mihP9qayBLY" title="Winter's Elemental Magic" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Five Elements</span>
-        <div class="vm-title">Winter's Elemental Magic</div>
-        <div class="vm-desc">How to restore your energy through Ling, in the season of stillness.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="taoist">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/6ZyYuYYL6gA" title="The Wealth Secret Hidden in Chinese Medicine" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Taoist Wisdom</span>
-        <div class="vm-title">The Wealth Secret Hidden in Chinese Medicine</div>
-        <div class="vm-desc">What the tradition means by abundance, and why it is rarely counted in currency.</div>
-      </div>
-      <div class="vm-card fade-up" data-cat="acupuncture">
-        <div class="vm-embed">
-          <iframe src="https://www.youtube.com/embed/zwa9XISjKts" title="Ozempic  Chinese Medicine" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <span class="vm-tag">Acupuncture</span>
-        <div class="vm-title">Ozempic &amp; Chinese Medicine</div>
-        <div class="vm-desc">What these drugs are doing to the body, read through a Chinese medicine lens.</div>
+    <div class="video-masonry" id="videoGrid"></div>
+      <p class="vm-empty" id="videoEmpty" hidden>Nothing in this topic yet.</p>
+      <div class="vm-more-wrap">
+        <button class="vm-more" id="loadMore" hidden>Load more videos</button>
+        <p class="vm-count" id="videoCount"></p>
       </div>
     </div>
-</section>
+
 
 <!-- CHANNEL CTA -->
 <section class="channel-cta">
@@ -520,17 +405,6 @@
   document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('open'));
   const observer = new IntersectionObserver(e => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  // Category filter
-  document.querySelectorAll('.category-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const f = tab.dataset.filter;
-      document.querySelectorAll('.vm-card').forEach(card => {
-        card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none';
-      });
-    });
-  });
 </script>
 <script>
   // Live channel stats. /api/youtube is cached at the edge for 6 hours, so this
@@ -553,6 +427,136 @@
       /* offline, blocked, or the key is not set yet: leave the fallback alone */
     }
   })();
+</script>
+<script>
+/* ------------------------------------------------------------------
+   The video library.
+
+   CURATED is the 20 videos with hand-written blurbs. It ships in the
+   page so the grid works with no JavaScript fetch, no API key, and
+   for crawlers. On load we ask /api/youtube-videos for the channel's
+   full long-form list; when that answers, the curated entries keep
+   their own tag and blurb and everything else is appended.
+
+   Cards render as posters and only become real YouTube iframes on
+   click, so the page stays light no matter how many videos there are.
+   ------------------------------------------------------------------ */
+(() => {
+  const PAGE = 12;
+  const TAGS = {"facereading": "Face Reading", "fiveelements": "Five Elements", "acupuncture": "Acupuncture", "taoist": "Taoist Wisdom", "interviews": "Interviews"};
+  const CURATED = [{"id":"YbeLgKXxafw","cat":"interviews","tag":"Interviews","title":"2026 Fire Horse Year Forecast","desc":"BaZi astrology with Paul Arellano — practical guidance and intentions for the year ahead."},{"id":"03I_kVdyv0U","cat":"taoist","tag":"Taoist Wisdom","title":"How to Unlock &ldquo;Free Energy&rdquo;","desc":"Qi, Shen and nervous system regulation — where your energy actually goes."},{"id":"9BlVz_7OYLc","cat":"facereading","tag":"Face Reading","title":"Mewing, Looksmaxxing &amp; The Hidden Meaning of Your Face","desc":"What the internet's face-fixing trends miss about why a face looks the way it does."},{"id":"3W1Ttu8c7IM","cat":"interviews","tag":"Interviews","title":"How to Trust Your Intuition","desc":"A conversation with Zoe Graman on hearing yourself clearly."},{"id":"rlnmifX_U7A","cat":"taoist","tag":"Taoist Wisdom","title":"AI, Jobs &amp; the Future of Humanity","desc":"What's really coming — with Paul Brown."},{"id":"qUi3kItQIfs","cat":"facereading","tag":"Face Reading","title":"You Judge Faces in Seconds","desc":"Here's what you're actually seeing when you form that first impression."},{"id":"ufzvjPuvhGM","cat":"facereading","tag":"Face Reading","title":"Your Face Is Your Resume","desc":"Face reading for hiring and job searching — what an interviewer reads before you speak."},{"id":"31Q9qoN4M-M","cat":"facereading","tag":"Face Reading","title":"Your Face Reveals Your Love Life","desc":"The features that speak to how you attach, choose, and relate."},{"id":"IeGXDjBqw6g","cat":"acupuncture","tag":"Acupuncture","title":"Why We Feel Stuck","desc":"The Small Intestine meridian, explained simply."},{"id":"ja3IYXH2nuU","cat":"facereading","tag":"Face Reading","title":"Read Your Face, Understand Yourself","desc":"What the practice is, and what your features are saying about you."},{"id":"SjSwMB22dD0","cat":"taoist","tag":"Taoist Wisdom","title":"The Easiest Way to Know What's Right for You","desc":"On hearing the signal underneath the noise when a decision won't settle."},{"id":"nEup_tTyeTw","cat":"taoist","tag":"Taoist Wisdom","title":"How to Be More Spiritual (You Just Forgot)","desc":"Less a practice to take up than something to remember."},{"id":"iKVBy7tIzEQ","cat":"facereading","tag":"Face Reading","title":"Why You Attract the Same People Over and Over","desc":"A face reading perspective on the patterns that keep repeating."},{"id":"kdzka5FjmGU","cat":"acupuncture","tag":"Acupuncture","title":"Befriending Your Body","desc":"Nervous system regulation through Daoist medicine."},{"id":"Kfeo9QgbtS8","cat":"interviews","tag":"Interviews","title":"The Golden Path: Remembering Lillian Bridges","desc":"With Deirdre Courtney and Kelly Harrington, on the teacher behind this lineage."},{"id":"w28IdK5dRlE","cat":"taoist","tag":"Taoist Wisdom","title":"What Is the Point of Being Human?","desc":"Daoism, face reading and purpose — a longer sit-down with the biggest question."},{"id":"fDGud3xRn7g","cat":"acupuncture","tag":"Acupuncture","title":"What Your Skin Is Communicating Emotionally","desc":"A Chinese medicine perspective on what shows up on the surface."},{"id":"mihP9qayBLY","cat":"fiveelements","tag":"Five Elements","title":"Winter's Elemental Magic","desc":"How to restore your energy through Ling, in the season of stillness."},{"id":"6ZyYuYYL6gA","cat":"taoist","tag":"Taoist Wisdom","title":"The Wealth Secret Hidden in Chinese Medicine","desc":"What the tradition means by abundance, and why it is rarely counted in currency."},{"id":"zwa9XISjKts","cat":"acupuncture","tag":"Acupuncture","title":"Ozempic &amp; Chinese Medicine","desc":"What these drugs are doing to the body, read through a Chinese medicine lens."}];
+
+  const grid = document.getElementById('videoGrid');
+  const moreBtn = document.getElementById('loadMore');
+  const countEl = document.getElementById('videoCount');
+  const emptyEl = document.getElementById('videoEmpty');
+  if (!grid) return;
+
+  let all = CURATED.slice();
+  let filter = 'all';
+  let shown = 0;
+
+  const esc = s => String(s).replace(/[&<>"']/g, c =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const plain = s => { const d = document.createElement('div'); d.innerHTML = s; return d.textContent; };
+  const nViews = n => n >= 1000 ? (n / 1000).toFixed(n < 10000 ? 1 : 0).replace(/\.0$/, '') + 'K' : String(n);
+
+  function visible() {
+    return filter === 'all' ? all : all.filter(v => v.cat === filter);
+  }
+
+  function card(v) {
+    const el = document.createElement('div');
+    el.className = 'vm-card fade-up visible';
+    el.dataset.cat = v.cat;
+    const title = plain(v.title);
+    const meta = [v.duration, v.views ? nViews(v.views) + ' views' : ''].filter(Boolean).join(' \u00b7 ');
+    el.innerHTML =
+      '<div class="vm-embed is-poster" role="button" tabindex="0" aria-label="Play: ' + esc(title) + '">' +
+        '<img src="https://i.ytimg.com/vi/' + v.id + '/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">' +
+        (v.duration ? '<span class="vm-duration">' + esc(v.duration) + '</span>' : '') +
+        '<button class="vm-play" aria-hidden="true" tabindex="-1">' +
+          '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>' +
+      '</div>' +
+      '<span class="vm-tag">' + esc(v.tag || TAGS[v.cat] || '') + '</span>' +
+      '<div class="vm-title">' + v.title + '</div>' +
+      (v.desc ? '<div class="vm-desc">' + v.desc + '</div>'
+              : (meta ? '<div class="vm-meta">' + meta + '</div>' : ''));
+
+    const shell = el.querySelector('.vm-embed');
+    const play = () => {
+      const f = document.createElement('iframe');
+      f.src = 'https://www.youtube.com/embed/' + v.id + '?autoplay=1&rel=0';
+      f.title = title;
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
+      f.allowFullscreen = true;
+      shell.classList.remove('is-poster');
+      shell.replaceChildren(f);
+    };
+    shell.addEventListener('click', play);
+    shell.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+    });
+    return el;
+  }
+
+  function renderMore() {
+    const list = visible();
+    const next = list.slice(shown, shown + PAGE);
+    const frag = document.createDocumentFragment();
+    next.forEach(v => frag.appendChild(card(v)));
+    grid.appendChild(frag);
+    shown += next.length;
+    update();
+  }
+
+  function update() {
+    const total = visible().length;
+    emptyEl.hidden = total > 0;
+    moreBtn.hidden = shown >= total;
+    countEl.textContent = total ? 'Showing ' + shown + ' of ' + total + ' videos' : '';
+  }
+
+  function reset() {
+    grid.replaceChildren();
+    shown = 0;
+    renderMore();
+  }
+
+  moreBtn.addEventListener('click', renderMore);
+
+  document.querySelectorAll('.category-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      filter = tab.dataset.filter;
+      reset();
+    });
+  });
+
+  reset();
+
+  // Bring in the rest of the channel. Curation wins where it exists.
+  (async () => {
+    try {
+      const r = await fetch('/api/youtube-videos', { headers: { Accept: 'application/json' } });
+      const d = await r.json();
+      if (!d || !d.ok || !Array.isArray(d.videos) || !d.videos.length) return;
+      const byId = new Map(CURATED.map(v => [v.id, v]));
+      const merged = d.videos.map(v => {
+        const c = byId.get(v.id);
+        byId.delete(v.id);
+        return c ? Object.assign({}, v, { cat: c.cat, tag: c.tag, title: c.title, desc: c.desc })
+                 : v;
+      });
+      // anything curated the API did not return (unlisted, or newly private) stays
+      all = merged.concat([...byId.values()]);
+      reset();
+    } catch (e) {
+      /* no key yet, offline, or blocked: the curated list is already on screen */
+    }
+  })();
+})();
 </script>
 </body>
 </html>
