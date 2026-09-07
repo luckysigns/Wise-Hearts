@@ -16,3 +16,8 @@ archive/
 assets/hilarey photo set *.png
 assets/Screen Shot *.png
 assets/4d021435-*.png
+
+# YouTube thumbnail tooling and archives live here in iCloud but are not part of the site
+tools/
+thumbnail-samples/
+*.zip
